@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Lional Personal Blog">
+    <title>分类: 框架介绍 - Lional Personal Blog</title>
+    <meta name="author" content="Lional">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="Game programming, Cocos2D-X, Unity3D, C++, Object-C, Golang, Lua, Javascript">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Lional Personal Blog">
+<meta property="og:url" content="https://ibunnyteam.github.io/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:site_name" content="Lional Personal Blog">
+<meta property="og:description" content="Game programming, Cocos2D-X, Unity3D, C++, Object-C, Golang, Lua, Javascript">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Lional">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-pyzjx4fl8qnrustkcsqwl7aq27fg196xvh5ke0oeiannb8m2p0zphy8rqohr.min.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Lional Personal Blog
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="打开链接: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="首页"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/resume"
+                            
+                            rel="noopener"
+                            title="个人简历"
+                        >
+                        <i class="sidebar-button-icon fa fa-book" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">个人简历</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="分类"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="标签"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="归档"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="搜索"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="关于"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/3dseals"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                            aria-label=": RuoYi-Cloud微服务框架入门与部署"
+                        >
+                            RuoYi-Cloud微服务框架入门与部署
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-09-10T15:00:00+08:00">
+	
+		    2023 年 9 月 10 日
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/">框架介绍</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spring Cloud</td>
+<td>微服务框架</td>
+</tr>
+<tr>
+<td>Spring Cloud Alibaba</td>
+<td>阿里巴巴微服务组件</td>
+</tr>
+<tr>
+<td>Nacos</td>
+<td>服务注册与配置中心</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>网关服务</td>
+</tr>
+<tr>
+<td>Sentinel</td>
+<td>流量控制</td>
+</tr>
+<tr>
+<td>Seata</td>
+<td>分布式事务</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>缓存</td>
+</tr>
+</tbody></table>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ruoyi-cloud<span class="symbol">/</span></span><br><span class="line">├── ruoyi-api<span class="symbol">/</span>                    <span class="comment"># API模块</span></span><br><span class="line">│   ├── ruoyi-api-system<span class="symbol">/</span>        <span class="comment"># 系统API</span></span><br><span class="line">│   └── ruoyi-api-file<span class="symbol">/</span>          <span class="comment"># 文件API</span></span><br><span class="line">├── ruoyi-auth<span class="symbol">/</span>                   <span class="comment"># 认证中心</span></span><br><span class="line">├── ruoyi-common<span class="symbol">/</span>                 <span class="comment"># 通用模块</span></span><br><span class="line">│   ├── ruoyi-common-core<span class="symbol">/</span>       <span class="comment"># 核心模块</span></span><br><span class="line">│   ├── ruoyi-common-redis<span class="symbol">/</span>      <span class="comment"># Redis模块</span></span><br><span class="line">│   ├── ruoyi-common-security<span class="symbol">/</span>   <span class="comment"># 安全模块</span></span><br><span class="line">│   └── ruoyi-common-swagger<span class="symbol">/</span>    <span class="comment"># Swagger模块</span></span><br><span class="line">├── ruoyi-gateway<span class="symbol">/</span>                <span class="comment"># 网关服务</span></span><br><span class="line">├── ruoyi-modules<span class="symbol">/</span>                <span class="comment"># 业务模块</span></span><br><span class="line">│   ├── ruoyi-system<span class="symbol">/</span>            <span class="comment"># 系统模块</span></span><br><span class="line">│   ├── ruoyi-gen<span class="symbol">/</span>               <span class="comment"># 代码生成</span></span><br><span class="line">│   ├── ruoyi-job<span class="symbol">/</span>               <span class="comment"># 定时任务</span></span><br><span class="line">│   └── ruoyi-file<span class="symbol">/</span>              <span class="comment"># 文件服务</span></span><br><span class="line">├── ruoyi-visual<span class="symbol">/</span>                 <span class="comment"># 可视化模块</span></span><br><span class="line">│   └── ruoyi-monitor<span class="symbol">/</span>           <span class="comment"># 监控中心</span></span><br><span class="line">└── ruoyi-ui<span class="symbol">/</span>                     <span class="comment"># 前端项目</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义模块结构"><a href="#自定义模块结构" class="headerlink" title="自定义模块结构"></a>自定义模块结构</h2><p>按照你提供的结构，创建自定义业务模块：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$&#123;artifactId&#125;/</span><br><span class="line">├─ pom.<span class="keyword">xml</span>                           <span class="title"># 根pom</span>（带profiles）</span><br><span class="line">├─ $&#123;artifactId&#125;-api/                <span class="comment"># API聚合模块</span></span><br><span class="line">│   ├─ $&#123;artifactId&#125;-local-api/      <span class="comment"># 单机启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   ├─ $&#123;artifactId&#125;-cloud-api/      <span class="comment"># 微服务启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   └─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">├─ $</span>&#123;artifactId&#125;-biz/                <span class="comment"># 业务逻辑模块</span></span><br><span class="line">│   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   └─ src</span>/main/java/...</span><br><span class="line">└─ $&#123;artifactId&#125;-<span class="literal">start</span>/              <span class="comment"># 启动模块</span></span><br><span class="line">    ├─ pom.<span class="keyword">xml</span></span><br><span class="line">    <span class="title">└─ src</span>/main/java/...</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nacos配置"><a href="#Nacos配置" class="headerlink" title="Nacos配置"></a>Nacos配置</h2><h3 id="1-安装Nacos"><a href="#1-安装Nacos" class="headerlink" title="1. 安装Nacos"></a>1. 安装Nacos</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载Nacos</span></span><br><span class="line">wget https://github.com/alibaba/nacos/releases/download/2.2.0/nacos-server-2.2.0.tar.gz</span><br><span class="line">tar -xvf nacos-server-2.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nacos/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单机模式启动</span></span><br><span class="line">./startup.sh -m standalone</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">startup.cmd -m standalone</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a href="http://localhost:8848/nacos%EF%BC%8C%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%EF%BC%9Anacos/nacos">http://localhost:8848/nacos，默认账号密码：nacos/nacos</a></p>
+<h3 id="2-服务注册配置"><a href="#2-服务注册配置" class="headerlink" title="2. 服务注册配置"></a>2. 服务注册配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-system</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置中心使用"><a href="#3-配置中心使用" class="headerlink" title="3. 配置中心使用"></a>3. 配置中心使用</h3><p>在Nacos控制台创建配置：</p>
+<ul>
+<li>Data ID: <code>ruoyi-system-dev.yml</code></li>
+<li>Group: <code>DEFAULT_GROUP</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nacos配置内容</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9201</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud?useUnicode=true</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="单机调试模式"><a href="#单机调试模式" class="headerlink" title="单机调试模式"></a>单机调试模式</h2><h3 id="Profile配置"><a href="#Profile配置" class="headerlink" title="Profile配置"></a>Profile配置</h3><p>根pom.xml配置profiles：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>local<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 微服务模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动配置"><a href="#单机启动配置" class="headerlink" title="单机启动配置"></a>单机启动配置</h3><p><code>application-local.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用服务注册</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用配置中心</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动命令"><a href="#单机启动命令" class="headerlink" title="单机启动命令"></a>单机启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用local profile启动</span></span><br><span class="line">mvn spring-boot:run -Plocal</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者IDEA中设置Active Profiles为local</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="微服务模式部署"><a href="#微服务模式部署" class="headerlink" title="微服务模式部署"></a>微服务模式部署</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> Nacos (服务注册与配置中心)</span><br><span class="line"><span class="bullet">2.</span> MySQL + Redis</span><br><span class="line"><span class="bullet">3.</span> ruoyi-gateway (网关)</span><br><span class="line"><span class="bullet">4.</span> ruoyi-auth (认证中心)</span><br><span class="line"><span class="bullet">5.</span> ruoyi-system (系统服务)</span><br><span class="line"><span class="bullet">6.</span> 其他业务服务</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Docker-Compose部署"><a href="#2-Docker-Compose部署" class="headerlink" title="2. Docker Compose部署"></a>2. Docker Compose部署</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">nacos:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nacos/nacos-server:v2.2.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MODE=standalone</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8848:8848&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:8.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:6.0</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;6379:6379&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">ruoyi-gateway:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-gateway</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-auth:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-auth</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-system:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-modules/ruoyi-system</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-微服务启动命令"><a href="#3-微服务启动命令" class="headerlink" title="3. 微服务启动命令"></a>3. 微服务启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用cloud profile启动</span></span><br><span class="line">mvn spring-boot:run -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包</span></span><br><span class="line">mvn clean package -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行jar</span></span><br><span class="line">java -jar ruoyi-gateway.jar --spring.profiles.active=cloud</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h2><h3 id="Feign客户端定义"><a href="#Feign客户端定义" class="headerlink" title="Feign客户端定义"></a>Feign客户端定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ruoyi-api-system模块</span></span><br><span class="line"><span class="meta">@FeignClient(contextId = &quot;remoteUserService&quot;, </span></span><br><span class="line"><span class="meta">             value = &quot;ruoyi-system&quot;,</span></span><br><span class="line"><span class="meta">             fallbackFactory = RemoteUserFallbackFactory.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">RemoteUserService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/info/&#123;username&#125;&quot;)</span></span><br><span class="line">    R&lt;LoginUser&gt; <span class="title function_">getUserInfo</span><span class="params">(<span class="meta">@PathVariable(&quot;username&quot;)</span> String username)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务调用-1"><a href="#服务调用-1" class="headerlink" title="服务调用"></a>服务调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SysLoginService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RemoteUserService remoteUserService;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> LoginUser <span class="title function_">login</span><span class="params">(String username)</span> &#123;</span><br><span class="line">        R&lt;LoginUser&gt; result = remoteUserService.getUserInfo(username);</span><br><span class="line">        <span class="keyword">return</span> result.getData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-Nacos连接失败"><a href="#1-Nacos连接失败" class="headerlink" title="1. Nacos连接失败"></a>1. Nacos连接失败</h3><p>检查Nacos是否启动，namespace是否正确配置</p>
+<h3 id="2-服务注册不上"><a href="#2-服务注册不上" class="headerlink" title="2. 服务注册不上"></a>2. 服务注册不上</h3><p>检查spring.application.name是否配置，网络是否通畅</p>
+<h3 id="3-配置不生效"><a href="#3-配置不生效" class="headerlink" title="3. 配置不生效"></a>3. 配置不生效</h3><p>确认Data ID格式：<code>$&#123;spring.application.name&#125;-$&#123;profile&#125;.$&#123;file-extension&#125;</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>RuoYi-Cloud通过Nacos实现了服务注册与配置管理，支持单机和微服务两种部署模式。开发时使用单机模式方便调试，生产环境使用微服务模式实现高可用。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://doc.ruoyi.vip/ruoyi-cloud/">RuoYi-Cloud官方文档</a></li>
+<li><a href="https://nacos.io/zh-cn/docs/quick-start.html">Nacos官方文档</a></li>
+<li><a href="https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/zh-cn/">Spring Cloud Alibaba</a></li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2020/03/15/ET%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/"
+                            aria-label=": ET游戏服务器框架介绍与入门"
+                        >
+                            ET游戏服务器框架介绍与入门
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2020-03-15T10:30:00+08:00">
+	
+		    2020 年 3 月 15 日
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/">框架介绍</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ET框架是一个基于C#的双端（客户端+服务端）游戏开发框架，由熊猫大佬开发维护。它的最大特点是客户端和服务端共用一套代码，大大提高了开发效率。本文将介绍ET框架的核心概念和简单入门。</p>
+<h2 id="ET框架特点"><a href="#ET框架特点" class="headerlink" title="ET框架特点"></a>ET框架特点</h2><h3 id="1-双端共用代码"><a href="#1-双端共用代码" class="headerlink" title="1. 双端共用代码"></a>1. 双端共用代码</h3><ul>
+<li>客户端使用Unity引擎</li>
+<li>服务端使用.NET Core</li>
+<li>网络协议、实体组件等代码可以共用</li>
+</ul>
+<h3 id="2-ECS架构"><a href="#2-ECS架构" class="headerlink" title="2. ECS架构"></a>2. ECS架构</h3><p>ET采用Entity-Component-System架构：</p>
+<ul>
+<li><strong>Entity（实体）</strong>：游戏中的对象，如玩家、怪物</li>
+<li><strong>Component（组件）</strong>：实体的数据和行为</li>
+<li><strong>System（系统）</strong>：处理组件的逻辑</li>
+</ul>
+<h3 id="3-Actor模型"><a href="#3-Actor模型" class="headerlink" title="3. Actor模型"></a>3. Actor模型</h3><p>服务端采用Actor模型进行消息处理，每个Actor独立处理自己的消息队列，避免多线程竞争。</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ET<span class="symbol">/</span></span><br><span class="line">├── Unity<span class="symbol">/</span>                    <span class="comment"># Unity客户端项目</span></span><br><span class="line">│   ├── Assets<span class="symbol">/</span></span><br><span class="line">│   │   ├── Scripts<span class="symbol">/</span></span><br><span class="line">│   │   │   ├── Core<span class="symbol">/</span>        <span class="comment"># 核心框架代码</span></span><br><span class="line">│   │   │   ├── Model<span class="symbol">/</span>       <span class="comment"># 数据模型</span></span><br><span class="line">│   │   │   ├── Hotfix<span class="symbol">/</span>      <span class="comment"># 热更新代码</span></span><br><span class="line">│   │   │   └── ThirdParty<span class="symbol">/</span>  <span class="comment"># 第三方库</span></span><br><span class="line">│   │   └── Bundles<span class="symbol">/</span>         <span class="comment"># 资源包</span></span><br><span class="line">├── Server<span class="symbol">/</span>                   <span class="comment"># 服务端项目</span></span><br><span class="line">│   ├── Model<span class="symbol">/</span>               <span class="comment"># 服务端数据模型</span></span><br><span class="line">│   ├── Hotfix<span class="symbol">/</span>              <span class="comment"># 服务端热更新</span></span><br><span class="line">│   └── App<span class="symbol">/</span>                 <span class="comment"># 启动入口</span></span><br><span class="line">└── Share<span class="symbol">/</span>                    <span class="comment"># 共享代码</span></span><br><span class="line">    ├── Proto<span class="symbol">/</span>               <span class="comment"># 协议定义</span></span><br><span class="line">    └── Config<span class="symbol">/</span>              <span class="comment"># 配置文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="Entity-实体"><a href="#Entity-实体" class="headerlink" title="Entity 实体"></a>Entity 实体</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个玩家实体</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Player</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Level &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实体</span></span><br><span class="line">Player player = ComponentFactory.Create&lt;Player&gt;();</span><br><span class="line">player.Name = <span class="string">&quot;TestPlayer&quot;</span>;</span><br><span class="line">player.Level = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Component-组件"><a href="#Component-组件" class="headerlink" title="Component 组件"></a>Component 组件</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义移动组件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MoveComponent</span> : <span class="title">Component</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Vector3 Position &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> Speed &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MoveTo</span>(<span class="params">Vector3 target</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 移动逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给实体添加组件</span></span><br><span class="line">player.AddComponent&lt;MoveComponent&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="消息处理"><a href="#消息处理" class="headerlink" title="消息处理"></a>消息处理</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义消息</span></span><br><span class="line">[<span class="meta">Message(OuterOpcode.C2G_Login)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">C2G_LoginRequest</span> : <span class="title">IRequest</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Account &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Password &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消息处理器</span></span><br><span class="line">[<span class="meta">MessageHandler</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">C2G_LoginHandler</span> : <span class="title">AMRpcHandler</span>&lt;<span class="title">C2G_LoginRequest</span>, <span class="title">G2C_LoginResponse</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">async</span> ETTask <span class="title">Run</span>(<span class="params">Session session, C2G_LoginRequest request, </span></span></span><br><span class="line"><span class="params"><span class="function">        G2C_LoginResponse response, Action reply</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 处理登录逻辑</span></span><br><span class="line">        response.PlayerId = <span class="number">10001</span>;</span><br><span class="line">        reply();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 .NET Core SDK 3.1+</span></span><br><span class="line"><span class="comment"># 安装 Unity 2019.4 LTS</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/egametang/ET.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-启动服务端"><a href="#2-启动服务端" class="headerlink" title="2. 启动服务端"></a>2. 启动服务端</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ET/Server/App</span><br><span class="line">dotnet run</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-启动客户端"><a href="#3-启动客户端" class="headerlink" title="3. 启动客户端"></a>3. 启动客户端</h3><ol>
+<li>用Unity打开 <code>ET/Unity</code> 项目</li>
+<li>打开场景 <code>Assets/Scenes/Init.unity</code></li>
+<li>点击Play运行</li>
+</ol>
+<h3 id="4-创建第一个功能"><a href="#4-创建第一个功能" class="headerlink" title="4. 创建第一个功能"></a>4. 创建第一个功能</h3><p>以创建一个简单的聊天功能为例：</p>
+<p><strong>定义协议 (Share&#x2F;Proto&#x2F;OuterMessage.proto)</strong></p>
+<figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">message </span><span class="title class_">C2G_Chat</span> <span class="comment">// IRequest</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">string</span> Content = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">G2C_Chat</span> <span class="comment">// IResponse</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int32</span> RpcId = <span class="number">90</span>;</span><br><span class="line">    <span class="type">int32</span> Error = <span class="number">91</span>;</span><br><span class="line">    <span class="type">string</span> Message = <span class="number">92</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>服务端处理器</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">MessageHandler</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">C2G_ChatHandler</span> : <span class="title">AMRpcHandler</span>&lt;<span class="title">C2G_Chat</span>, <span class="title">G2C_Chat</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">async</span> ETTask <span class="title">Run</span>(<span class="params">Session session, C2G_Chat request, </span></span></span><br><span class="line"><span class="params"><span class="function">        G2C_Chat response, Action reply</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Log.Info(<span class="string">$&quot;收到聊天消息: <span class="subst">&#123;request.Content&#125;</span>&quot;</span>);</span><br><span class="line">        response.Message = <span class="string">$&quot;服务器收到: <span class="subst">&#123;request.Content&#125;</span>&quot;</span>;</span><br><span class="line">        reply();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>客户端调用</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> ETTask <span class="title">SendChat</span>(<span class="params"><span class="built_in">string</span> content</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    G2C_Chat response = <span class="keyword">await</span> SessionComponent.Instance.Session</span><br><span class="line">        .Call(<span class="keyword">new</span> C2G_Chat &#123; Content = content &#125;) <span class="keyword">as</span> G2C_Chat;</span><br><span class="line">    Log.Info(response.Message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务端架构"><a href="#服务端架构" class="headerlink" title="服务端架构"></a>服务端架构</h2><p>ET服务端采用分布式架构，主要包含以下进程：</p>
+<table>
+<thead>
+<tr>
+<th>进程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gate</td>
+<td>网关服务器，处理客户端连接</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>地图服务器，处理游戏逻辑</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>位置服务器，管理Actor位置</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>数据库代理服务器</td>
+</tr>
+<tr>
+<td>Realm</td>
+<td>登录服务器</td>
+</tr>
+</tbody></table>
+<h2 id="热更新机制"><a href="#热更新机制" class="headerlink" title="热更新机制"></a>热更新机制</h2><p>ET支持代码热更新：</p>
+<ul>
+<li>Model层：不可热更新的基础代码</li>
+<li>Hotfix层：可热更新的业务逻辑</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Hotfix层代码可以在运行时重新加载</span></span><br><span class="line"><span class="comment">// 修改Hotfix代码后，服务端可以不停服更新</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>ET框架的优势：</p>
+<ol>
+<li><strong>开发效率高</strong>：双端共用代码</li>
+<li><strong>架构清晰</strong>：ECS + Actor模型</li>
+<li><strong>支持热更新</strong>：业务逻辑可热更</li>
+<li><strong>社区活跃</strong>：持续更新维护</li>
+</ol>
+<p>适用场景：</p>
+<ul>
+<li>中小型网络游戏</li>
+<li>需要快速迭代的项目</li>
+<li>熟悉C#的团队</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/egametang/ET">ET框架GitHub</a></li>
+<li><a href="https://github.com/egametang/ET/tree/master/Book">ET框架文档</a></li>
+<li><a href="https://jq.qq.com/?_wv=1027&k=5u4xvuq">ET框架QQ群</a></li>
+</ul>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2020/03/15/ET%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2018/05/24/%E7%94%A8%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"
+                            aria-label=": 用容器配置mysql主从实现读写分离"
+                        >
+                            用容器配置mysql主从实现读写分离
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-05-24T15:22:23+08:00">
+	
+		    2018 年 5 月 24 日
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/">框架介绍</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="容器简介"><a href="#容器简介" class="headerlink" title="容器简介"></a>容器简介</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<h2 id="CentOS-7-安装docker"><a href="#CentOS-7-安装docker" class="headerlink" title="CentOS 7 安装docker"></a>CentOS 7 安装docker</h2><p>安装必要的一些系统工具</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yum update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -<span class="variable language_">y</span> yum-utils device-mapper-<span class="variable language_">persistent</span>-data lvm2</span><br></pre></td></tr></table></figure>
+
+<p>添加软件源信息</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum-config-manager --<span class="built_in">add</span>-repo http://mirrors.aliyun.<span class="keyword">com</span>/docker-<span class="keyword">ce</span>/linux/centos/docker-<span class="keyword">ce</span>.repo </span><br></pre></td></tr></table></figure>
+
+<p>更新并安装 Docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum makecache fast</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install docker-ce</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 开启容器服务</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl <span class="built_in">enable</span> docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl start docker</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，你可以通过以下方式开启。同理可以开启各种测试版本等。</span><br><span class="line"><span class="variable">$ </span>vim /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="variable">$ </span>  将 [docker-ce-test] 下方的 enabled=<span class="number">0</span> 修改为 enabled=<span class="number">1</span></span><br><span class="line"><span class="variable">$ </span></span><br><span class="line"><span class="variable">$ </span>安装指定版本的Docker-<span class="symbol">CE:</span></span><br><span class="line"><span class="variable">$ </span>Step <span class="number">1</span>: 查找Docker-CE的版本:</span><br><span class="line"><span class="variable">$ </span>yum list docker-ce.x86_64 --showduplicates | sort -r</span><br><span class="line"><span class="variable">$ </span>  Loading mirror speeds from cached hostfile</span><br><span class="line"><span class="variable">$ </span>  Loaded <span class="symbol">plugins:</span> branch, fastestmirror, langpacks</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            <span class="variable">@docker</span>-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">0</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  Available Packages</span><br><span class="line"><span class="variable">$ </span>Step2 : 安装指定版本的Docker-<span class="symbol">CE:</span> (VERSION 例如上面的 <span class="number">17.03</span>.<span class="number">0</span>.ce.<span class="number">1</span>-<span class="number">1</span>.el7.centos)</span><br><span class="line"><span class="variable">$ </span>yum -y install docker-ce-[VERSION]</span><br></pre></td></tr></table></figure>
+
+<p>注册一个阿里的账号,<br>进入加速器页面<a href="https://cr.console.aliyun.com/#/accelerator">https://cr.console.aliyun.com/#/accelerator</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim /etc/docker/daemon.json</span></span><br></pre></td></tr></table></figure>
+
+<p>内容如下</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://你的阿里云加速地址.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启docker</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>systemctl daemon-reload</span><br><span class="line"><span class="variable">$ </span>systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用docker命令"><a href="#常用docker命令" class="headerlink" title="常用docker命令"></a>常用docker命令</h3><p>查看运行容器</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span></span><br></pre></td></tr></table></figure>
+
+<p>查看所有容器</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
+
+<p>进入容器<br>其中字符串为容器ID:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it d27bd3008ad9 /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>1.停用全部运行中的容器:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.删除全部容器：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<p>3.一条命令实现停用并删除容器：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>) &amp;&amp; docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装mariadb"><a href="#安装mariadb" class="headerlink" title="安装mariadb"></a>安装mariadb</h2><p>centOS上比yum安装mysql要方便.</p>
+<p>###安装mysql-client，用于访问mysql容器数据库</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y <span class="keyword">install</span> mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="单独MySQL模式"><a href="#单独MySQL模式" class="headerlink" title="单独MySQL模式"></a>单独MySQL模式</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-MASTER"><a href="#MariaDB-MASTER" class="headerlink" title="MariaDB MASTER"></a>MariaDB MASTER</h3><p>进入容器需要修改镜像<br>将下面内容添加进&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;*.cnf<br>从机server-id&#x3D;2</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">server-id</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">log-bin</span>=mysql-bin</span><br><span class="line"><span class="attr">binlog_format</span>=MIXED</span><br><span class="line"><span class="attr">default-time_zone</span> = <span class="string">&#x27;+8:00&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>提交</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>运行master, 这里LOG_BIN参数没有用,所以在上面修改了镜像</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>查询容器的ip地址</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker inspect <span class="literal">--format</span>=<span class="string">&#x27;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#x27;</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-a</span> <span class="literal">-q</span>)  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>链接容器mysql</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>查看master是否启用了log_bin</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show variables like &#x27;%log_bin%&#x27;;</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> Variable_name                   </span>|<span class="string"> Value                          </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> log_bin                         </span>|<span class="string"> ON                             </span>|</span><br><span class="line">|<span class="string"> log_bin_basename                </span>|<span class="string"> /var/lib/mysql/mysql-bin       </span>|</span><br><span class="line">|<span class="string"> log_bin_compress                </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> log_bin_compress_min_len        </span>|<span class="string"> 256                            </span>|</span><br><span class="line">|<span class="string"> log_bin_index                   </span>|<span class="string"> /var/lib/mysql/mysql-bin.index </span>|</span><br><span class="line">|<span class="string"> log_bin_trust_function_creators </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> sql_log_bin                     </span>|<span class="string"> ON                             </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>查看主机状态,注意启动从机的时候bin和pos的参数</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show master status;</span><br><span class="line"><span class="code">+------------------+</span>----------<span class="code">+--------------+</span>------------------+</span><br><span class="line"><span class="section">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br><span class="line"><span class="section">| mysql-bin.000003 |      342 |              |                  |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>添加slave账户</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> SLAVE <span class="keyword">ON</span> *.* <span class="keyword">to</span> <span class="string">&#x27;slave&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;reader&#x27;</span>;</span><br><span class="line">FLUSH <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-SLAVE"><a href="#MariaDB-SLAVE" class="headerlink" title="MariaDB SLAVE"></a>MariaDB SLAVE</h3><h4 id="没有sql导入的情况"><a href="#没有sql导入的情况" class="headerlink" title="没有sql导入的情况"></a>没有sql导入的情况</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-slave2 <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3310</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave2:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="先用sql文件导入再同步"><a href="#先用sql文件导入再同步" class="headerlink" title="先用sql文件导入再同步"></a>先用sql文件导入再同步</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e DATABASE_FILE=database.sql <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3308</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>需要把database.sql文件存提前存放在&#x2F;data&#x2F;mariadb-slave目录</p>
+<p>进入slaver的mariadb</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.3</span></span><br></pre></td></tr></table></figure>
+
+<p>设置主库链接</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">change master to master_host</span>=<span class="string">&#x27;172.17.0.2&#x27;</span>,master_user=<span class="string">&#x27;slave&#x27;</span>,master_password=<span class="string">&#x27;reader&#x27;</span>,master_log_file=<span class="string">&#x27;mysql-bin.000003&#x27;</span>,master_log_pos=342,master_port=3306;</span><br></pre></td></tr></table></figure>
+
+<p>启动从库同步</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">start</span> <span class="literal">slave</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查看状态</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">show</span> slave <span class="built_in">status</span>\G;</span><br></pre></td></tr></table></figure>
+
+<p>当看到</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Slave_IO_Running:</span> <span class="literal">Yes</span></span><br><span class="line"><span class="attr">Slave_SQL_Running:</span> <span class="literal">Yes</span></span><br></pre></td></tr></table></figure>
+
+<p>则启动成功</p>
+<p>##docker redis 集群（cluster）搭建</p>
+<p>顺带完成redis集群,安装依赖</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull redis</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull ruby</span><br></pre></td></tr></table></figure>
+
+<p>创建redis容器</p>
+<p>1、创建redis配置文件（redis-cluster.tmpl）</p>
+<p>我在路径&#x2F;root下创建一个文件夹redis-cluster,在路径&#x2F;root&#x2F;redis-cluster下创建一个文件redis-cluster.tmpl，并把以下内容复制过去。</p>
+<p>10.0.2.15 &#x2F;&#x2F;自己的服务器ip</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-enabled yes</span><br><span class="line"><span class="keyword">cluster</span>-config-<span class="keyword">file</span> nodes.conf</span><br><span class="line"><span class="keyword">cluster</span>-node-timeout <span class="number">5000</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-ip <span class="number">10.0</span><span class="number">.2</span><span class="number">.15</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-announce-bus-port <span class="number">1</span>$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>创建自定义network</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker network create redis-net</span><br></pre></td></tr></table></figure>
+
+
+<p>在&#x2F;root&#x2F;redis-cluster下生成conf和data目标，并生成配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/conf \</span><br><span class="line">  &amp;&amp; PORT=<span class="variable">$&#123;port&#125;</span> envsubst &lt; ./redis-cluster.tmpl &gt; ./<span class="variable">$&#123;port&#125;</span>/conf/redis.conf \</span><br><span class="line">  &amp;&amp; <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/data; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>创建6个redis容器</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">for</span> port in `seq <span class="number">6379</span> <span class="number">6384</span>`; do <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  docker run -d -ti -p <span class="variable">$&#123;port&#125;</span>:<span class="variable">$&#123;port&#125;</span> -p <span class="number">1</span><span class="variable">$&#123;port&#125;</span>:<span class="number">1</span><span class="variable">$&#123;port&#125;</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/conf/redis.conf:/usr/local/etc/redis/redis.conf <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/data:/data <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --restart always --name redis-<span class="variable">$&#123;port&#125;</span> --net redis-net <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --sysctl net.core.somaxconn=<span class="number">1024</span> redis redis-server /usr/local/etc/redis/redis.conf; <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>done</span><br></pre></td></tr></table></figure>
+
+<p>通过启动ruby来实现集群</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo yes | docker <span class="keyword">run</span> -i --<span class="keyword">rm</span> --<span class="keyword">net</span> redis-<span class="keyword">net</span> ruby <span class="keyword">sh</span> -c &#x27; \</span><br><span class="line">gem install redis \</span><br><span class="line">&amp;&amp; wget http:<span class="comment">//download.redis.io/redis-stable/src/redis-trib.rb \</span></span><br><span class="line">&amp;&amp; ruby redis-trib.rb create --replicas 1 \</span><br><span class="line">&#x27;&quot;$(<span class="keyword">for</span> port <span class="keyword">in</span> `seq 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">echo -<span class="keyword">n</span> <span class="string">&quot;$(docker inspect --format &#x27;&#123;&#123; (index .NetworkSettings.Networks &quot;</span>redis-<span class="keyword">net</span><span class="string">&quot;).IPAddress &#125;&#125;&#x27; &quot;</span>redis-<span class="variable">$&#123;port&#125;</span><span class="string">&quot;)&quot;</span>:<span class="variable">$&#123;port&#125;</span> &#x27; &#x27; ; \</span><br><span class="line">done)&quot;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2018/05/24/%E7%94%A8%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">第 1 页 共 1 页</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2026 Lional. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Lional</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-1obdt5wzfl2h4z74qcngcfkihsn8nv7bavuzuqccs3xw55i5zz2cfvbfgzte.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Lional Personal Blog">
+    <title>标签: 容器 数据库 读写分离 - Lional Personal Blog</title>
+    <meta name="author" content="Lional">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="Game programming, Cocos2D-X, Unity3D, C++, Object-C, Golang, Lua, Javascript">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Lional Personal Blog">
+<meta property="og:url" content="https://ibunnyteam.github.io/tags/%E5%AE%B9%E5%99%A8-%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/index.html">
+<meta property="og:site_name" content="Lional Personal Blog">
+<meta property="og:description" content="Game programming, Cocos2D-X, Unity3D, C++, Object-C, Golang, Lua, Javascript">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Lional">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-pyzjx4fl8qnrustkcsqwl7aq27fg196xvh5ke0oeiannb8m2p0zphy8rqohr.min.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Lional Personal Blog
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="打开链接: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="首页"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/resume"
+                            
+                            rel="noopener"
+                            title="个人简历"
+                        >
+                        <i class="sidebar-button-icon fa fa-book" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">个人简历</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="分类"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="标签"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="归档"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="搜索"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="关于"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/3dseals"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2018/05/24/%E7%94%A8%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"
+                            aria-label=": 用容器配置mysql主从实现读写分离"
+                        >
+                            用容器配置mysql主从实现读写分离
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-05-24T15:22:23+08:00">
+	
+		    2018 年 5 月 24 日
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/">框架介绍</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="容器简介"><a href="#容器简介" class="headerlink" title="容器简介"></a>容器简介</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<h2 id="CentOS-7-安装docker"><a href="#CentOS-7-安装docker" class="headerlink" title="CentOS 7 安装docker"></a>CentOS 7 安装docker</h2><p>安装必要的一些系统工具</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>yum update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -<span class="variable language_">y</span> yum-utils device-mapper-<span class="variable language_">persistent</span>-data lvm2</span><br></pre></td></tr></table></figure>
+
+<p>添加软件源信息</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum-config-manager --<span class="built_in">add</span>-repo http://mirrors.aliyun.<span class="keyword">com</span>/docker-<span class="keyword">ce</span>/linux/centos/docker-<span class="keyword">ce</span>.repo </span><br></pre></td></tr></table></figure>
+
+<p>更新并安装 Docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum makecache fast</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install docker-ce</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 开启容器服务</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl <span class="built_in">enable</span> docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl start docker</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，你可以通过以下方式开启。同理可以开启各种测试版本等。</span><br><span class="line"><span class="variable">$ </span>vim /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="variable">$ </span>  将 [docker-ce-test] 下方的 enabled=<span class="number">0</span> 修改为 enabled=<span class="number">1</span></span><br><span class="line"><span class="variable">$ </span></span><br><span class="line"><span class="variable">$ </span>安装指定版本的Docker-<span class="symbol">CE:</span></span><br><span class="line"><span class="variable">$ </span>Step <span class="number">1</span>: 查找Docker-CE的版本:</span><br><span class="line"><span class="variable">$ </span>yum list docker-ce.x86_64 --showduplicates | sort -r</span><br><span class="line"><span class="variable">$ </span>  Loading mirror speeds from cached hostfile</span><br><span class="line"><span class="variable">$ </span>  Loaded <span class="symbol">plugins:</span> branch, fastestmirror, langpacks</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            <span class="variable">@docker</span>-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">0</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  Available Packages</span><br><span class="line"><span class="variable">$ </span>Step2 : 安装指定版本的Docker-<span class="symbol">CE:</span> (VERSION 例如上面的 <span class="number">17.03</span>.<span class="number">0</span>.ce.<span class="number">1</span>-<span class="number">1</span>.el7.centos)</span><br><span class="line"><span class="variable">$ </span>yum -y install docker-ce-[VERSION]</span><br></pre></td></tr></table></figure>
+
+<p>注册一个阿里的账号,<br>进入加速器页面<a href="https://cr.console.aliyun.com/#/accelerator">https://cr.console.aliyun.com/#/accelerator</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim /etc/docker/daemon.json</span></span><br></pre></td></tr></table></figure>
+
+<p>内容如下</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://你的阿里云加速地址.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启docker</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>systemctl daemon-reload</span><br><span class="line"><span class="variable">$ </span>systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用docker命令"><a href="#常用docker命令" class="headerlink" title="常用docker命令"></a>常用docker命令</h3><p>查看运行容器</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span></span><br></pre></td></tr></table></figure>
+
+<p>查看所有容器</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
+
+<p>进入容器<br>其中字符串为容器ID:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it d27bd3008ad9 /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>1.停用全部运行中的容器:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.删除全部容器：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<p>3.一条命令实现停用并删除容器：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>) &amp;&amp; docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装mariadb"><a href="#安装mariadb" class="headerlink" title="安装mariadb"></a>安装mariadb</h2><p>centOS上比yum安装mysql要方便.</p>
+<p>###安装mysql-client，用于访问mysql容器数据库</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y <span class="keyword">install</span> mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="单独MySQL模式"><a href="#单独MySQL模式" class="headerlink" title="单独MySQL模式"></a>单独MySQL模式</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-MASTER"><a href="#MariaDB-MASTER" class="headerlink" title="MariaDB MASTER"></a>MariaDB MASTER</h3><p>进入容器需要修改镜像<br>将下面内容添加进&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;*.cnf<br>从机server-id&#x3D;2</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">server-id</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">log-bin</span>=mysql-bin</span><br><span class="line"><span class="attr">binlog_format</span>=MIXED</span><br><span class="line"><span class="attr">default-time_zone</span> = <span class="string">&#x27;+8:00&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>提交</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>运行master, 这里LOG_BIN参数没有用,所以在上面修改了镜像</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>查询容器的ip地址</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker inspect <span class="literal">--format</span>=<span class="string">&#x27;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#x27;</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-a</span> <span class="literal">-q</span>)  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>链接容器mysql</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>查看master是否启用了log_bin</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show variables like &#x27;%log_bin%&#x27;;</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> Variable_name                   </span>|<span class="string"> Value                          </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> log_bin                         </span>|<span class="string"> ON                             </span>|</span><br><span class="line">|<span class="string"> log_bin_basename                </span>|<span class="string"> /var/lib/mysql/mysql-bin       </span>|</span><br><span class="line">|<span class="string"> log_bin_compress                </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> log_bin_compress_min_len        </span>|<span class="string"> 256                            </span>|</span><br><span class="line">|<span class="string"> log_bin_index                   </span>|<span class="string"> /var/lib/mysql/mysql-bin.index </span>|</span><br><span class="line">|<span class="string"> log_bin_trust_function_creators </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> sql_log_bin                     </span>|<span class="string"> ON                             </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>查看主机状态,注意启动从机的时候bin和pos的参数</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show master status;</span><br><span class="line"><span class="code">+------------------+</span>----------<span class="code">+--------------+</span>------------------+</span><br><span class="line"><span class="section">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br><span class="line"><span class="section">| mysql-bin.000003 |      342 |              |                  |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>添加slave账户</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> SLAVE <span class="keyword">ON</span> *.* <span class="keyword">to</span> <span class="string">&#x27;slave&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;reader&#x27;</span>;</span><br><span class="line">FLUSH <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-SLAVE"><a href="#MariaDB-SLAVE" class="headerlink" title="MariaDB SLAVE"></a>MariaDB SLAVE</h3><h4 id="没有sql导入的情况"><a href="#没有sql导入的情况" class="headerlink" title="没有sql导入的情况"></a>没有sql导入的情况</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-slave2 <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3310</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave2:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="先用sql文件导入再同步"><a href="#先用sql文件导入再同步" class="headerlink" title="先用sql文件导入再同步"></a>先用sql文件导入再同步</h4><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e DATABASE_FILE=database.sql <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3308</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>需要把database.sql文件存提前存放在&#x2F;data&#x2F;mariadb-slave目录</p>
+<p>进入slaver的mariadb</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.3</span></span><br></pre></td></tr></table></figure>
+
+<p>设置主库链接</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">change master to master_host</span>=<span class="string">&#x27;172.17.0.2&#x27;</span>,master_user=<span class="string">&#x27;slave&#x27;</span>,master_password=<span class="string">&#x27;reader&#x27;</span>,master_log_file=<span class="string">&#x27;mysql-bin.000003&#x27;</span>,master_log_pos=342,master_port=3306;</span><br></pre></td></tr></table></figure>
+
+<p>启动从库同步</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">start</span> <span class="literal">slave</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查看状态</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">show</span> slave <span class="built_in">status</span>\G;</span><br></pre></td></tr></table></figure>
+
+<p>当看到</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Slave_IO_Running:</span> <span class="literal">Yes</span></span><br><span class="line"><span class="attr">Slave_SQL_Running:</span> <span class="literal">Yes</span></span><br></pre></td></tr></table></figure>
+
+<p>则启动成功</p>
+<p>##docker redis 集群（cluster）搭建</p>
+<p>顺带完成redis集群,安装依赖</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull redis</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull ruby</span><br></pre></td></tr></table></figure>
+
+<p>创建redis容器</p>
+<p>1、创建redis配置文件（redis-cluster.tmpl）</p>
+<p>我在路径&#x2F;root下创建一个文件夹redis-cluster,在路径&#x2F;root&#x2F;redis-cluster下创建一个文件redis-cluster.tmpl，并把以下内容复制过去。</p>
+<p>10.0.2.15 &#x2F;&#x2F;自己的服务器ip</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-enabled yes</span><br><span class="line"><span class="keyword">cluster</span>-config-<span class="keyword">file</span> nodes.conf</span><br><span class="line"><span class="keyword">cluster</span>-node-timeout <span class="number">5000</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-ip <span class="number">10.0</span><span class="number">.2</span><span class="number">.15</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-announce-bus-port <span class="number">1</span>$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>创建自定义network</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker network create redis-net</span><br></pre></td></tr></table></figure>
+
+
+<p>在&#x2F;root&#x2F;redis-cluster下生成conf和data目标，并生成配置信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/conf \</span><br><span class="line">  &amp;&amp; PORT=<span class="variable">$&#123;port&#125;</span> envsubst &lt; ./redis-cluster.tmpl &gt; ./<span class="variable">$&#123;port&#125;</span>/conf/redis.conf \</span><br><span class="line">  &amp;&amp; <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/data; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>创建6个redis容器</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">for</span> port in `seq <span class="number">6379</span> <span class="number">6384</span>`; do <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  docker run -d -ti -p <span class="variable">$&#123;port&#125;</span>:<span class="variable">$&#123;port&#125;</span> -p <span class="number">1</span><span class="variable">$&#123;port&#125;</span>:<span class="number">1</span><span class="variable">$&#123;port&#125;</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/conf/redis.conf:/usr/local/etc/redis/redis.conf <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/data:/data <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --restart always --name redis-<span class="variable">$&#123;port&#125;</span> --net redis-net <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --sysctl net.core.somaxconn=<span class="number">1024</span> redis redis-server /usr/local/etc/redis/redis.conf; <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>done</span><br></pre></td></tr></table></figure>
+
+<p>通过启动ruby来实现集群</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo yes | docker <span class="keyword">run</span> -i --<span class="keyword">rm</span> --<span class="keyword">net</span> redis-<span class="keyword">net</span> ruby <span class="keyword">sh</span> -c &#x27; \</span><br><span class="line">gem install redis \</span><br><span class="line">&amp;&amp; wget http:<span class="comment">//download.redis.io/redis-stable/src/redis-trib.rb \</span></span><br><span class="line">&amp;&amp; ruby redis-trib.rb create --replicas 1 \</span><br><span class="line">&#x27;&quot;$(<span class="keyword">for</span> port <span class="keyword">in</span> `seq 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">echo -<span class="keyword">n</span> <span class="string">&quot;$(docker inspect --format &#x27;&#123;&#123; (index .NetworkSettings.Networks &quot;</span>redis-<span class="keyword">net</span><span class="string">&quot;).IPAddress &#125;&#125;&#x27; &quot;</span>redis-<span class="variable">$&#123;port&#125;</span><span class="string">&quot;)&quot;</span>:<span class="variable">$&#123;port&#125;</span> &#x27; &#x27; ; \</span><br><span class="line">done)&quot;</span><br></pre></td></tr></table></figure>
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2018/05/24/%E7%94%A8%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                评论和共享
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">第 1 页 共 1 页</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2026 Lional. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Lional</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-1obdt5wzfl2h4z74qcngcfkihsn8nv7bavuzuqccs3xw55i5zz2cfvbfgzte.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>

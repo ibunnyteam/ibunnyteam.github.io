@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Amazing hexo</title>
+    <url>/2015/12/03/Amazing-hexo/</url>
+    <content><![CDATA[<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>I have been looking for such a blog, strong self-confidence like WordPress.<br>And Spending dollars to buy the domain name and server space is prerequisite.<br>I never thought that a free and almost unlimited freedom blog exist.<br>Hexo just like this. A fast, simple &amp; powerful blog. I did not hesitate to try it.<br>So far so amazing.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="First"><a href="#First" class="headerlink" title="First"></a>First</h3><p>Let’s introduce how to set up hexo.<br>Please Download nodejs from <a href="http://nodejs.org/">http://nodejs.org</a>.<br>I get <a href="https://nodejs.org/dist/v4.2.2/node-v4.2.2-x64.msi">node-v4.2.2-x64.msi</a>.<br>then double click to install nodejs.<br>Keep the default configuration to direct the installation.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="Setup-your-blog"><a href="#Setup-your-blog" class="headerlink" title="Setup your blog."></a>Setup your blog.</h3><p>make a name in the computer called “YOU NAME” folder (for example, I make dir in  D:\workspace\OSGDreamWorks\ibunnyteam.github.io).<br>then open this folder, run the following command.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">[info] Copying data</span><br><span class="line">[info] You are almost <span class="keyword">done</span>! Don<span class="string">&#x27;t forget to run `npm install` before you start b</span></span><br><span class="line"><span class="string">logging with Hexo!</span></span><br></pre></td></tr></table></figure>
+
+<p>Hexo will automatically create a file in the target folder that website require.<br>Then follow the prompts to run npm install (in “YOU NAME” folder).</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>then you can get the node_modules.<br>All work will be done automatically by nodejs.</p>
+<h3 id="Start-the-server"><a href="#Start-the-server" class="headerlink" title="Start the server"></a>Start the server</h3><p>Run the following command (in “YOU NAME” folder).</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">[info] Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<p>Then you can open the local blog. easy, all right!</p>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><p>Open a new command-line window, execute the following command</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br><span class="line">[info] File created at d:\Hexo\<span class="built_in">source</span>\_posts\My-New-Post.md</span><br></pre></td></tr></table></figure>
+
+<p>Refresh <a href="http://localhost:4000/%EF%BC%8Cyou">http://localhost:4000/，you</a> can see the “My New Post”。</p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><p>执行下面的命令，将markdown文件生成静态网页。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>After this command is executed, it will be generating a series of html, css and other documents in public directory.</p>
+<h2 id="Upload-the-blog"><a href="#Upload-the-blog" class="headerlink" title="Upload the blog"></a>Upload the blog</h2><p>Now you only have established a local blog.<br>How others see your blog.<br>You need github. Also amazing project.<br>your can know every thing in github.com<a href="https://github.com/">https://github.com/</a></p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>Deployed to the former Github need to configure _config.yml file, first locate the following content.</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type:</span><br></pre></td></tr></table></figure>
+
+<p>Changed to:</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:ibunnyteam/ibunnyteam.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h5 id="NOTE1"><a href="#NOTE1" class="headerlink" title="NOTE1:"></a>NOTE1:</h5><p>Repository: SSH form must be url (<a href="mailto:&#103;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>: ibunnyteam &#x2F; ibunnyteam.github.io.git), but can not be HTTPS form url (<a href="https://github.com/ibunnyteam/ibunnyteam.github.io">https://github.com/ibunnyteam/ibunnyteam.github.io</a>. git), otherwise an error:<br>You need named the repository YOU_GITHUB_ACCOUNT.github.io then you can open the <a href="https://ibunnyteam.github.io/ibunnyteam.github.io">github static web</a>.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">[info] Start deploying: github</span><br></pre></td></tr></table></figure>
+
+<p>Use SSH url, if the computer is not an open SSH port will cause the deployment to fail.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[error] https://github.com/ibunnyteam/ibunnyteam.github.io is not a valid repositor URL!</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+
+<h5 id="NOTE2："><a href="#NOTE2：" class="headerlink" title="NOTE2："></a>NOTE2：</h5><p>If you are making a project website, then you need to branch to gh-pages.</p>
+<h2 id="Last"><a href="#Last" class="headerlink" title="Last"></a>Last</h2><p>you can make a domain name with the <a href="https://ibunnyteam.github.io/ibunnyteam.github.io">github static web</a>.</p>
+<p>The short command for hexo:</p>
+<p>new blog</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n</span><br></pre></td></tr></table></figure>
+<p>generate</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>upload</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="Have-fun"><a href="#Have-fun" class="headerlink" title="Have fun"></a>Have fun</h2>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo github nodjs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>去中心化网络游戏设计</title>
+    <url>/2017/12/11/%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96%E7%BD%91%E7%BB%9C%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>写这篇文章之前,我在想这是属于策划案还是开发框架,最终定位到策划案,希望有更多的游戏设计者能先策划出新的玩法,再来定开发框架.<br>本文所述并未实现过任何代码,也并未用于任何上线产品,纯属概念模型.之所以有这种想法,可能是基于昨晚的一次灵感,以及即将设计的游戏有关.</p>
+<h2 id="第一章-去中心化概念"><a href="#第一章-去中心化概念" class="headerlink" title="第一章 去中心化概念"></a>第一章 去中心化概念</h2><p>其实最简单的去中心化游戏就是单机游戏和局域网游戏,但是本文要讲诉的是mmo网络游戏的去中心化,为什么既然网络化了又要去中心化,这不是矛盾吗.<br>网络游戏有个通病,就是网速影响游戏体验过,这是客户端所直接反映的问题,服务端反应的你不能直接感受到的问题,很难做到全球同服,什么意思呢,就是所有玩家不全是在一台服务器上<br>因为服务器是有瓶颈的,本身计算量很大的情况下,socket能承载同时单服1W人在线就很不错了,像coc这种全球一个服的游戏很少,这种服务器的架构就很复杂,绝大部分网游就是分区,另一个好处就是分区重新开始游戏,可以解决通货膨胀问题.coc玩到满级满王满墙也就没有玩下去的动力了.另一方面,单机游戏比起网游,不具备强交互能力,可玩性,游戏性大打折扣.如果做到既能联网交互,又可以不靠网络来获得体验,由客户端去演算游戏逻辑,极大降低服务端成本,这就是本文想探讨的去中心化的游戏.像王者荣耀这样的moba游戏已经很接近本文所说的功能了,但是还是有所区别.至于什么区别读完本文可能有个大致了解.本文要探讨的不是moba,也不是rpg,亦或是slg这些类型,而是总的游戏设计方法.去中心化,没有中心服务器,可以是弱联网,亦或是强联网,核心是有各自客户端或是区域链来演算游戏的逻辑,然而还是有一处中心化得服务器为大家来解决统一数据问题,例如物品交易,这点类似于比特币</p>
+<h2 id="第二章-比特币模型"><a href="#第二章-比特币模型" class="headerlink" title="第二章 比特币模型"></a>第二章 比特币模型</h2><p>我大概简单的描述一下比特币,这也是去中心化的基石.比特币是一种符合某种算法结果的数字货币,什么意思呢,比如在某一个坐标区域,坐标值代入md5公式,能得到一个符合”x01”字符串的值,那么就认为你找到一枚数字货币,而且这个货币还能定义下一个坐标区域,也就是说,当前区域总的货币数量是一定的,没有挖掘完之前,也无法开采下一个坐标区域.比特币的函数要比我所述的复杂,但基本上是这个意思,算法是公开的,能得到的货币是有限的,一旦挖掘到货币就与中心服确认,并且获得所有权.那如果把这个模型改造一下.游戏币是从boss掉落的,或者生产制作的.或者任务获得的,假设boss,制作工具,任务都有一个gid,全局唯一ID,而且产生的作者也有个唯一uid,再加上创造出来的时间戳time,那我们可以拿着这些数据,到服务器去鉴别真伪,中心服务器会保存一个私钥,给gid+uid+time+key签名,这个货币就有一个串值,如果同一个uid复制多个货币,因为签名一样,也会被认为是一个货币而删掉其他,如果发生交易,那么这个货币还要一个交易序列,给gid+uid+time+trade+key签名会成为新的串值,而中心服会保存所有货币的最新值,也就是说两个玩家拥有了同样的货币,看他们串值是否是最新的,那么鉴别为旧版货币的就是假币.如果都修改成同一串值,那么看交易序列的最后拥有者是谁,谁就是真币.这是我想到的数字货币模型,但是如果作为游戏币,每一个货币都要保存很多值,所以我更倾向于付费可交易货币做这种去中心化的真伪模型,比如银票.而不能交易的游戏币还是只是简单的数字.</p>
+<h2 id="第三章-装备模型"><a href="#第三章-装备模型" class="headerlink" title="第三章 装备模型"></a>第三章 装备模型</h2><p>上述所说比特币模型,数字货币模型,如果直接引用到装备模型,完全可以像数字货币一样,做到去中心化的真伪模型,玩家获得一件装备,属于未鉴定状态,需要向中心服鉴别真伪,如果为伪,那装备没有加成的属性.我们还需要处理的一件事情是防止玩家直接对真实装备改值,这需要第一,配置表的时候就生产一个验证,是否是改过配置表,第二,生成装备的时候要要把属性加入到串码算法中.玩家战斗时检测装备正确性,因为是客户端自己验算,所以也不会对服务端产生压力,目前客户端性能越来越强大,对于简单的演算还是可以接受的.</p>
+<h2 id="第四章-函数逻辑模型"><a href="#第四章-函数逻辑模型" class="headerlink" title="第四章 函数逻辑模型"></a>第四章 函数逻辑模型</h2><p>所有的演算,逻辑都在客户端,或者说区域链服,可以把区域链服理解为几个人组局域网后其中一个人为主机的概念,那么客户端也可能对函数进行作弊,这种无法从任何算法上解决,但去中心化还有种思路是,可以认同50%以上的逻辑为正确的逻辑,也就是说假如我5个人联网,有3个人结果一致,就按这3个人的逻辑,如果5个人结果都不一致,那么此次验证失败,那么只要大部分的人保持正确心态,可以容忍少部分人作弊,也只能是自己单机演算作弊,假如多数人作弊的情况下,大环境下也可以认可是公平的.只是作为运营的我们收入大大折扣了,所以要防止这种事情发生.另外,如果防止单机作弊,我的想法是每次函数堆栈(重要的战斗算法)要保存起来参数,返回值,这些,传给服务器做一个校正,是否真伪,如果作弊可以纳入非诚信玩家,并给与一定惩罚</p>
+<h2 id="第五章-其他中心化包含的内容"><a href="#第五章-其他中心化包含的内容" class="headerlink" title="第五章 其他中心化包含的内容"></a>第五章 其他中心化包含的内容</h2><p>有些内容是无法去中心化的,比如全局装备鉴别,货币鉴别,装备交易,玩家排行榜,世界聊天,世界地图等这些本身就是要做中心化的交互,所以这里不予讨论,这里只是把战斗,组队,装备掉落这些耗时的主要逻辑在客户端来演算,来增加体验和性能.</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>说了这么多,其实还并没有实现一个基于这个想法的游戏.如果把RPG设计成去中心化,要解决大地图的问题,如果大地图还是中心服那就没有意义,还是需要处理很多逻辑,所以这个适合跑大地图,进副本战斗和回合制战斗的RPG游戏.如果把MOBA设计成去中心化,那其实就是当年的魔兽,星际,只是主机不是一台,而是多台,以大多数人的演算为准,个人感觉,意义也不大,直接做局域网的游戏就可以了,只是加个中心交互,如果用来做SLG,感觉还是不错的,试想一下三国志并不是你一个人在攻城略地,有没有很刺激.如果做其他的小地图副本游戏也是可以的.当然这个设计也是有弊端的,你需要容忍数据不能像ARGP那样及时同步,因为你无法保证组队的5个人每个人的网络都很好,万一有个别人卡住,要么踢掉他,要么等他回来的验算结果.其他的弊端暂未想到,欢迎一起来讨论</p>
+]]></content>
+      <categories>
+        <category>游戏设计</category>
+      </categories>
+      <tags>
+        <tag>游戏设计 去中心化 区域链 bitcoin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用容器配置mysql主从实现读写分离</title>
+    <url>/2018/05/24/%E7%94%A8%E5%AE%B9%E5%99%A8%E9%85%8D%E7%BD%AEmysql%E4%B8%BB%E4%BB%8E%E5%AE%9E%E7%8E%B0%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</url>
+    <content><![CDATA[<h2 id="容器简介"><a href="#容器简介" class="headerlink" title="容器简介"></a>容器简介</h2><p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化，容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<h2 id="CentOS-7-安装docker"><a href="#CentOS-7-安装docker" class="headerlink" title="CentOS 7 安装docker"></a>CentOS 7 安装docker</h2><p>安装必要的一些系统工具</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>yum update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight gml"><table><tr><td class="code"><pre><span class="line">$ yum install -<span class="variable language_">y</span> yum-utils device-mapper-<span class="variable language_">persistent</span>-data lvm2</span><br></pre></td></tr></table></figure>
+
+<p>添加软件源信息</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ yum-config-manager --<span class="built_in">add</span>-repo http://mirrors.aliyun.<span class="keyword">com</span>/docker-<span class="keyword">ce</span>/linux/centos/docker-<span class="keyword">ce</span>.repo </span><br></pre></td></tr></table></figure>
+
+<p>更新并安装 Docker</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum makecache fast</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">yum -y install docker-ce</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 开启容器服务</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl <span class="built_in">enable</span> docker</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">systemctl start docker</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>官方软件源默认启用了最新的软件，您可以通过编辑软件源的方式获取各个版本的软件包。例如官方并没有将测试版本的软件源置为可用，你可以通过以下方式开启。同理可以开启各种测试版本等。</span><br><span class="line"><span class="variable">$ </span>vim /etc/yum.repos.d/docker-ce.repo</span><br><span class="line"><span class="variable">$ </span>  将 [docker-ce-test] 下方的 enabled=<span class="number">0</span> 修改为 enabled=<span class="number">1</span></span><br><span class="line"><span class="variable">$ </span></span><br><span class="line"><span class="variable">$ </span>安装指定版本的Docker-<span class="symbol">CE:</span></span><br><span class="line"><span class="variable">$ </span>Step <span class="number">1</span>: 查找Docker-CE的版本:</span><br><span class="line"><span class="variable">$ </span>yum list docker-ce.x86_64 --showduplicates | sort -r</span><br><span class="line"><span class="variable">$ </span>  Loading mirror speeds from cached hostfile</span><br><span class="line"><span class="variable">$ </span>  Loaded <span class="symbol">plugins:</span> branch, fastestmirror, langpacks</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">1</span>.ce-<span class="number">1</span>.el7.centos            <span class="variable">@docker</span>-ce-stable</span><br><span class="line"><span class="variable">$ </span>  docker-ce.x86_64            <span class="number">17.03</span>.<span class="number">0</span>.ce-<span class="number">1</span>.el7.centos            docker-ce-stable</span><br><span class="line"><span class="variable">$ </span>  Available Packages</span><br><span class="line"><span class="variable">$ </span>Step2 : 安装指定版本的Docker-<span class="symbol">CE:</span> (VERSION 例如上面的 <span class="number">17.03</span>.<span class="number">0</span>.ce.<span class="number">1</span>-<span class="number">1</span>.el7.centos)</span><br><span class="line"><span class="variable">$ </span>yum -y install docker-ce-[VERSION]</span><br></pre></td></tr></table></figure>
+
+<p>注册一个阿里的账号,<br>进入加速器页面<a href="https://cr.console.aliyun.com/#/accelerator">https://cr.console.aliyun.com/#/accelerator</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vim /etc/docker/daemon.json</span></span><br></pre></td></tr></table></figure>
+
+<p>内容如下</p>
+<figure class="highlight prolog"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [<span class="string">&quot;https://你的阿里云加速地址.mirror.aliyuncs.com&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启docker</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>systemctl daemon-reload</span><br><span class="line"><span class="variable">$ </span>systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用docker命令"><a href="#常用docker命令" class="headerlink" title="常用docker命令"></a>常用docker命令</h3><p>查看运行容器</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span></span><br></pre></td></tr></table></figure>
+
+<p>查看所有容器</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
+
+<p>进入容器<br>其中字符串为容器ID:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it d27bd3008ad9 /bin/bash</span></span><br></pre></td></tr></table></figure>
+
+<p>1.停用全部运行中的容器:</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.删除全部容器：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<p>3.一条命令实现停用并删除容器：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-q</span>) &amp;&amp; docker <span class="built_in">rm</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-aq</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装mariadb"><a href="#安装mariadb" class="headerlink" title="安装mariadb"></a>安装mariadb</h2><p>centOS上比yum安装mysql要方便.</p>
+<p>###安装mysql-client，用于访问mysql容器数据库</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">$ yum -y <span class="keyword">install</span> mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="单独MySQL模式"><a href="#单独MySQL模式" class="headerlink" title="单独MySQL模式"></a>单独MySQL模式</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-MASTER"><a href="#MariaDB-MASTER" class="headerlink" title="MariaDB MASTER"></a>MariaDB MASTER</h3><p>进入容器需要修改镜像<br>将下面内容添加进&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;*.cnf<br>从机server-id&#x3D;2</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">server-id</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">log-bin</span>=mysql-bin</span><br><span class="line"><span class="attr">binlog_format</span>=MIXED</span><br><span class="line"><span class="attr">default-time_zone</span> = <span class="string">&#x27;+8:00&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>提交</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">docker</span> commit -m <span class="string">&quot;set log bin on&quot;</span> -a <span class="string">&quot;lional&quot;</span> d27bd3008ad9 mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>运行master, 这里LOG_BIN参数没有用,所以在上面修改了镜像</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-master:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3306</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-master:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>查询容器的ip地址</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> docker inspect <span class="literal">--format</span>=<span class="string">&#x27;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&#x27;</span> <span class="variable">$</span>(docker <span class="built_in">ps</span> <span class="literal">-a</span> <span class="literal">-q</span>)  </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight accesslog"><table><tr><td class="code"><pre><span class="line"><span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>链接容器mysql</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.2</span></span><br></pre></td></tr></table></figure>
+
+<p>查看master是否启用了log_bin</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show variables like &#x27;%log_bin%&#x27;;</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> Variable_name                   </span>|<span class="string"> Value                          </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br><span class="line">|<span class="string"> log_bin                         </span>|<span class="string"> ON                             </span>|</span><br><span class="line">|<span class="string"> log_bin_basename                </span>|<span class="string"> /var/lib/mysql/mysql-bin       </span>|</span><br><span class="line">|<span class="string"> log_bin_compress                </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> log_bin_compress_min_len        </span>|<span class="string"> 256                            </span>|</span><br><span class="line">|<span class="string"> log_bin_index                   </span>|<span class="string"> /var/lib/mysql/mysql-bin.index </span>|</span><br><span class="line">|<span class="string"> log_bin_trust_function_creators </span>|<span class="string"> OFF                            </span>|</span><br><span class="line">|<span class="string"> sql_log_bin                     </span>|<span class="string"> ON                             </span>|</span><br><span class="line">+---------------------------------+--------------------------------+</span><br></pre></td></tr></table></figure>
+
+<p>查看主机状态,注意启动从机的时候bin和pos的参数</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show master status;</span><br><span class="line"><span class="code">+------------------+</span>----------<span class="code">+--------------+</span>------------------+</span><br><span class="line"><span class="section">| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br><span class="line"><span class="section">| mysql-bin.000003 |      342 |              |                  |</span></span><br><span class="line"><span class="section">+------------------+----------+--------------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>添加slave账户</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">REPLICATION</span> SLAVE <span class="keyword">ON</span> *.* <span class="keyword">to</span> <span class="string">&#x27;slave&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;reader&#x27;</span>;</span><br><span class="line">FLUSH <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MariaDB-SLAVE"><a href="#MariaDB-SLAVE" class="headerlink" title="MariaDB SLAVE"></a>MariaDB SLAVE</h3><h4 id="没有sql导入的情况"><a href="#没有sql导入的情况" class="headerlink" title="没有sql导入的情况"></a>没有sql导入的情况</h4><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-slave2 <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e LOG_BIN=mysql-bin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3310</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave2:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h4 id="先用sql文件导入再同步"><a href="#先用sql文件导入再同步" class="headerlink" title="先用sql文件导入再同步"></a>先用sql文件导入再同步</h4><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">docker</span> run -d <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--restart=always <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>--name mysql-master <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e TIMEZONE=Asia/Shanghai <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-v /data/mariadb-slave:/data/mariadb <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MYSQL_ROOT_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e BINLOG_FORMAT=MIXED <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e REPLICATION_PASSWORD=admin <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e DATABASE_FILE=database.sql <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_FILE=mysql-bin.<span class="number">000003</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_LOG_POS=<span class="number">342</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_PORT=<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-e MASTER_HOST=<span class="number">172.17.0.2</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>-p <span class="number">3308</span>:<span class="number">3306</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>mariadb-slave:<span class="number">1</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>需要把database.sql文件存提前存放在&#x2F;data&#x2F;mariadb-slave目录</p>
+<p>进入slaver的mariadb</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">mysql</span> -uroot -padmin -h <span class="number">172.17.0.3</span></span><br></pre></td></tr></table></figure>
+
+<p>设置主库链接</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">change master to master_host</span>=<span class="string">&#x27;172.17.0.2&#x27;</span>,master_user=<span class="string">&#x27;slave&#x27;</span>,master_password=<span class="string">&#x27;reader&#x27;</span>,master_log_file=<span class="string">&#x27;mysql-bin.000003&#x27;</span>,master_log_pos=342,master_port=3306;</span><br></pre></td></tr></table></figure>
+
+<p>启动从库同步</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line"><span class="literal">start</span> <span class="literal">slave</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查看状态</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">show</span> slave <span class="built_in">status</span>\G;</span><br></pre></td></tr></table></figure>
+
+<p>当看到</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">Slave_IO_Running:</span> <span class="literal">Yes</span></span><br><span class="line"><span class="attr">Slave_SQL_Running:</span> <span class="literal">Yes</span></span><br></pre></td></tr></table></figure>
+
+<p>则启动成功</p>
+<p>##docker redis 集群（cluster）搭建</p>
+<p>顺带完成redis集群,安装依赖</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull redis</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>docker pull ruby</span><br></pre></td></tr></table></figure>
+
+<p>创建redis容器</p>
+<p>1、创建redis配置文件（redis-cluster.tmpl）</p>
+<p>我在路径&#x2F;root下创建一个文件夹redis-cluster,在路径&#x2F;root&#x2F;redis-cluster下创建一个文件redis-cluster.tmpl，并把以下内容复制过去。</p>
+<p>10.0.2.15 &#x2F;&#x2F;自己的服务器ip</p>
+<figure class="highlight mel"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-enabled yes</span><br><span class="line"><span class="keyword">cluster</span>-config-<span class="keyword">file</span> nodes.conf</span><br><span class="line"><span class="keyword">cluster</span>-node-timeout <span class="number">5000</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-ip <span class="number">10.0</span><span class="number">.2</span><span class="number">.15</span></span><br><span class="line"><span class="keyword">cluster</span>-announce-port $&#123;PORT&#125;</span><br><span class="line"><span class="keyword">cluster</span>-announce-bus-port <span class="number">1</span>$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+
+<p>创建自定义network</p>
+<figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>docker network create redis-net</span><br></pre></td></tr></table></figure>
+
+
+<p>在&#x2F;root&#x2F;redis-cluster下生成conf和data目标，并生成配置信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/conf \</span><br><span class="line">  &amp;&amp; PORT=<span class="variable">$&#123;port&#125;</span> envsubst &lt; ./redis-cluster.tmpl &gt; ./<span class="variable">$&#123;port&#125;</span>/conf/redis.conf \</span><br><span class="line">  &amp;&amp; <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/data; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<p>创建6个redis容器</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">for</span> port in `seq <span class="number">6379</span> <span class="number">6384</span>`; do <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  docker run -d -ti -p <span class="variable">$&#123;port&#125;</span>:<span class="variable">$&#123;port&#125;</span> -p <span class="number">1</span><span class="variable">$&#123;port&#125;</span>:<span class="number">1</span><span class="variable">$&#123;port&#125;</span> <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/conf/redis.conf:/usr/local/etc/redis/redis.conf <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  -v /root/redis-cluster/<span class="variable">$&#123;port&#125;</span>/data:/data <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --restart always --name redis-<span class="variable">$&#123;port&#125;</span> --net redis-net <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>  --sysctl net.core.somaxconn=<span class="number">1024</span> redis redis-server /usr/local/etc/redis/redis.conf; <span class="punctuation">\</span></span><br><span class="line"><span class="punctuation"></span>done</span><br></pre></td></tr></table></figure>
+
+<p>通过启动ruby来实现集群</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">echo yes | docker <span class="keyword">run</span> -i --<span class="keyword">rm</span> --<span class="keyword">net</span> redis-<span class="keyword">net</span> ruby <span class="keyword">sh</span> -c &#x27; \</span><br><span class="line">gem install redis \</span><br><span class="line">&amp;&amp; wget http:<span class="comment">//download.redis.io/redis-stable/src/redis-trib.rb \</span></span><br><span class="line">&amp;&amp; ruby redis-trib.rb create --replicas 1 \</span><br><span class="line">&#x27;&quot;$(<span class="keyword">for</span> port <span class="keyword">in</span> `seq 6379 6384`; <span class="keyword">do</span> \</span><br><span class="line">echo -<span class="keyword">n</span> <span class="string">&quot;$(docker inspect --format &#x27;&#123;&#123; (index .NetworkSettings.Networks &quot;</span>redis-<span class="keyword">net</span><span class="string">&quot;).IPAddress &#125;&#125;&#x27; &quot;</span>redis-<span class="variable">$&#123;port&#125;</span><span class="string">&quot;)&quot;</span>:<span class="variable">$&#123;port&#125;</span> &#x27; &#x27; ; \</span><br><span class="line">done)&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>框架介绍</category>
+      </categories>
+      <tags>
+        <tag>容器 数据库 读写分离</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ET游戏服务器框架介绍与入门</title>
+    <url>/2020/03/15/ET%E6%B8%B8%E6%88%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ET框架是一个基于C#的双端（客户端+服务端）游戏开发框架，由熊猫大佬开发维护。它的最大特点是客户端和服务端共用一套代码，大大提高了开发效率。本文将介绍ET框架的核心概念和简单入门。</p>
+<h2 id="ET框架特点"><a href="#ET框架特点" class="headerlink" title="ET框架特点"></a>ET框架特点</h2><h3 id="1-双端共用代码"><a href="#1-双端共用代码" class="headerlink" title="1. 双端共用代码"></a>1. 双端共用代码</h3><ul>
+<li>客户端使用Unity引擎</li>
+<li>服务端使用.NET Core</li>
+<li>网络协议、实体组件等代码可以共用</li>
+</ul>
+<h3 id="2-ECS架构"><a href="#2-ECS架构" class="headerlink" title="2. ECS架构"></a>2. ECS架构</h3><p>ET采用Entity-Component-System架构：</p>
+<ul>
+<li><strong>Entity（实体）</strong>：游戏中的对象，如玩家、怪物</li>
+<li><strong>Component（组件）</strong>：实体的数据和行为</li>
+<li><strong>System（系统）</strong>：处理组件的逻辑</li>
+</ul>
+<h3 id="3-Actor模型"><a href="#3-Actor模型" class="headerlink" title="3. Actor模型"></a>3. Actor模型</h3><p>服务端采用Actor模型进行消息处理，每个Actor独立处理自己的消息队列，避免多线程竞争。</p>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">ET<span class="symbol">/</span></span><br><span class="line">├── Unity<span class="symbol">/</span>                    <span class="comment"># Unity客户端项目</span></span><br><span class="line">│   ├── Assets<span class="symbol">/</span></span><br><span class="line">│   │   ├── Scripts<span class="symbol">/</span></span><br><span class="line">│   │   │   ├── Core<span class="symbol">/</span>        <span class="comment"># 核心框架代码</span></span><br><span class="line">│   │   │   ├── Model<span class="symbol">/</span>       <span class="comment"># 数据模型</span></span><br><span class="line">│   │   │   ├── Hotfix<span class="symbol">/</span>      <span class="comment"># 热更新代码</span></span><br><span class="line">│   │   │   └── ThirdParty<span class="symbol">/</span>  <span class="comment"># 第三方库</span></span><br><span class="line">│   │   └── Bundles<span class="symbol">/</span>         <span class="comment"># 资源包</span></span><br><span class="line">├── Server<span class="symbol">/</span>                   <span class="comment"># 服务端项目</span></span><br><span class="line">│   ├── Model<span class="symbol">/</span>               <span class="comment"># 服务端数据模型</span></span><br><span class="line">│   ├── Hotfix<span class="symbol">/</span>              <span class="comment"># 服务端热更新</span></span><br><span class="line">│   └── App<span class="symbol">/</span>                 <span class="comment"># 启动入口</span></span><br><span class="line">└── Share<span class="symbol">/</span>                    <span class="comment"># 共享代码</span></span><br><span class="line">    ├── Proto<span class="symbol">/</span>               <span class="comment"># 协议定义</span></span><br><span class="line">    └── Config<span class="symbol">/</span>              <span class="comment"># 配置文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="Entity-实体"><a href="#Entity-实体" class="headerlink" title="Entity 实体"></a>Entity 实体</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个玩家实体</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Player</span> : <span class="title">Entity</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Level &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实体</span></span><br><span class="line">Player player = ComponentFactory.Create&lt;Player&gt;();</span><br><span class="line">player.Name = <span class="string">&quot;TestPlayer&quot;</span>;</span><br><span class="line">player.Level = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Component-组件"><a href="#Component-组件" class="headerlink" title="Component 组件"></a>Component 组件</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义移动组件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MoveComponent</span> : <span class="title">Component</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Vector3 Position &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> Speed &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MoveTo</span>(<span class="params">Vector3 target</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 移动逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给实体添加组件</span></span><br><span class="line">player.AddComponent&lt;MoveComponent&gt;();</span><br></pre></td></tr></table></figure>
+
+<h3 id="消息处理"><a href="#消息处理" class="headerlink" title="消息处理"></a>消息处理</h3><figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义消息</span></span><br><span class="line">[<span class="meta">Message(OuterOpcode.C2G_Login)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">C2G_LoginRequest</span> : <span class="title">IRequest</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Account &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> Password &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消息处理器</span></span><br><span class="line">[<span class="meta">MessageHandler</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">C2G_LoginHandler</span> : <span class="title">AMRpcHandler</span>&lt;<span class="title">C2G_LoginRequest</span>, <span class="title">G2C_LoginResponse</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">async</span> ETTask <span class="title">Run</span>(<span class="params">Session session, C2G_LoginRequest request, </span></span></span><br><span class="line"><span class="params"><span class="function">        G2C_LoginResponse response, Action reply</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 处理登录逻辑</span></span><br><span class="line">        response.PlayerId = <span class="number">10001</span>;</span><br><span class="line">        reply();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 .NET Core SDK 3.1+</span></span><br><span class="line"><span class="comment"># 安装 Unity 2019.4 LTS</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/egametang/ET.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-启动服务端"><a href="#2-启动服务端" class="headerlink" title="2. 启动服务端"></a>2. 启动服务端</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ET/Server/App</span><br><span class="line">dotnet run</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-启动客户端"><a href="#3-启动客户端" class="headerlink" title="3. 启动客户端"></a>3. 启动客户端</h3><ol>
+<li>用Unity打开 <code>ET/Unity</code> 项目</li>
+<li>打开场景 <code>Assets/Scenes/Init.unity</code></li>
+<li>点击Play运行</li>
+</ol>
+<h3 id="4-创建第一个功能"><a href="#4-创建第一个功能" class="headerlink" title="4. 创建第一个功能"></a>4. 创建第一个功能</h3><p>以创建一个简单的聊天功能为例：</p>
+<p><strong>定义协议 (Share&#x2F;Proto&#x2F;OuterMessage.proto)</strong></p>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"><span class="keyword">message </span><span class="title class_">C2G_Chat</span> <span class="comment">// IRequest</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">string</span> Content = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">message </span><span class="title class_">G2C_Chat</span> <span class="comment">// IResponse</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int32</span> RpcId = <span class="number">90</span>;</span><br><span class="line">    <span class="type">int32</span> Error = <span class="number">91</span>;</span><br><span class="line">    <span class="type">string</span> Message = <span class="number">92</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>服务端处理器</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">[<span class="meta">MessageHandler</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">C2G_ChatHandler</span> : <span class="title">AMRpcHandler</span>&lt;<span class="title">C2G_Chat</span>, <span class="title">G2C_Chat</span>&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">async</span> ETTask <span class="title">Run</span>(<span class="params">Session session, C2G_Chat request, </span></span></span><br><span class="line"><span class="params"><span class="function">        G2C_Chat response, Action reply</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Log.Info(<span class="string">$&quot;收到聊天消息: <span class="subst">&#123;request.Content&#125;</span>&quot;</span>);</span><br><span class="line">        response.Message = <span class="string">$&quot;服务器收到: <span class="subst">&#123;request.Content&#125;</span>&quot;</span>;</span><br><span class="line">        reply();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>客户端调用</strong></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> ETTask <span class="title">SendChat</span>(<span class="params"><span class="built_in">string</span> content</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    G2C_Chat response = <span class="keyword">await</span> SessionComponent.Instance.Session</span><br><span class="line">        .Call(<span class="keyword">new</span> C2G_Chat &#123; Content = content &#125;) <span class="keyword">as</span> G2C_Chat;</span><br><span class="line">    Log.Info(response.Message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务端架构"><a href="#服务端架构" class="headerlink" title="服务端架构"></a>服务端架构</h2><p>ET服务端采用分布式架构，主要包含以下进程：</p>
+<table>
+<thead>
+<tr>
+<th>进程</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gate</td>
+<td>网关服务器，处理客户端连接</td>
+</tr>
+<tr>
+<td>Map</td>
+<td>地图服务器，处理游戏逻辑</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>位置服务器，管理Actor位置</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>数据库代理服务器</td>
+</tr>
+<tr>
+<td>Realm</td>
+<td>登录服务器</td>
+</tr>
+</tbody></table>
+<h2 id="热更新机制"><a href="#热更新机制" class="headerlink" title="热更新机制"></a>热更新机制</h2><p>ET支持代码热更新：</p>
+<ul>
+<li>Model层：不可热更新的基础代码</li>
+<li>Hotfix层：可热更新的业务逻辑</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Hotfix层代码可以在运行时重新加载</span></span><br><span class="line"><span class="comment">// 修改Hotfix代码后，服务端可以不停服更新</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>ET框架的优势：</p>
+<ol>
+<li><strong>开发效率高</strong>：双端共用代码</li>
+<li><strong>架构清晰</strong>：ECS + Actor模型</li>
+<li><strong>支持热更新</strong>：业务逻辑可热更</li>
+<li><strong>社区活跃</strong>：持续更新维护</li>
+</ol>
+<p>适用场景：</p>
+<ul>
+<li>中小型网络游戏</li>
+<li>需要快速迭代的项目</li>
+<li>熟悉C#的团队</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/egametang/ET">ET框架GitHub</a></li>
+<li><a href="https://github.com/egametang/ET/tree/master/Book">ET框架文档</a></li>
+<li><a href="https://jq.qq.com/?_wv=1027&k=5u4xvuq">ET框架QQ群</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>框架介绍</category>
+      </categories>
+      <tags>
+        <tag>ET Unity C# 游戏服务器 ECS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OKR绩效管理介绍与实践</title>
+    <url>/2023/06/20/OKR%E7%BB%A9%E6%95%88%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<h2 id="什么是OKR"><a href="#什么是OKR" class="headerlink" title="什么是OKR"></a>什么是OKR</h2><p>OKR（Objectives and Key Results）即目标与关键结果法，是一套明确和跟踪目标及其完成情况的管理工具和方法。由Intel发明，后被Google、Facebook等公司广泛采用。</p>
+<h3 id="OKR的组成"><a href="#OKR的组成" class="headerlink" title="OKR的组成"></a>OKR的组成</h3><ul>
+<li>**O (Objective)**：目标，你想要达成什么</li>
+<li>**KR (Key Results)**：关键结果，如何衡量目标的达成</li>
+</ul>
+<h2 id="OKR-vs-KPI"><a href="#OKR-vs-KPI" class="headerlink" title="OKR vs KPI"></a>OKR vs KPI</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>OKR</th>
+<th>KPI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>目的</td>
+<td>激励和方向引导</td>
+<td>绩效考核</td>
+</tr>
+<tr>
+<td>制定方式</td>
+<td>自下而上+自上而下</td>
+<td>自上而下</td>
+</tr>
+<tr>
+<td>公开程度</td>
+<td>全员公开透明</td>
+<td>通常仅上下级可见</td>
+</tr>
+<tr>
+<td>完成率</td>
+<td>60-70%为佳</td>
+<td>要求100%完成</td>
+</tr>
+<tr>
+<td>调整频率</td>
+<td>季度调整</td>
+<td>年度调整</td>
+</tr>
+<tr>
+<td>与薪酬关系</td>
+<td>不直接挂钩</td>
+<td>直接挂钩</td>
+</tr>
+</tbody></table>
+<h2 id="OKR制定原则"><a href="#OKR制定原则" class="headerlink" title="OKR制定原则"></a>OKR制定原则</h2><h3 id="1-Objective-目标原则"><a href="#1-Objective-目标原则" class="headerlink" title="1. Objective 目标原则"></a>1. Objective 目标原则</h3><ul>
+<li><strong>鼓舞人心</strong>：目标应该能激励团队</li>
+<li><strong>可达成但有挑战</strong>：不是轻易能完成的</li>
+<li><strong>定性描述</strong>：用文字描述，不是数字</li>
+<li><strong>时间限定</strong>：通常为一个季度</li>
+</ul>
+<h3 id="2-Key-Results-关键结果原则"><a href="#2-Key-Results-关键结果原则" class="headerlink" title="2. Key Results 关键结果原则"></a>2. Key Results 关键结果原则</h3><ul>
+<li><strong>可量化</strong>：必须是可衡量的数字</li>
+<li><strong>有挑战性</strong>：完成60-70%算成功</li>
+<li><strong>3-5个为宜</strong>：每个O对应3-5个KR</li>
+<li><strong>结果导向</strong>：关注结果而非过程</li>
+</ul>
+<h2 id="OKR实践案例"><a href="#OKR实践案例" class="headerlink" title="OKR实践案例"></a>OKR实践案例</h2><h3 id="案例一：技术团队OKR"><a href="#案例一：技术团队OKR" class="headerlink" title="案例一：技术团队OKR"></a>案例一：技术团队OKR</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">【Q3 技术团队OKR】</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">O1</span><span class="punctuation">:</span> <span class="string">提升系统稳定性，打造高可用服务</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">系统可用性从99.5%提升到99.9%</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">P0故障数量从每月3次降低到0次</span></span><br><span class="line"><span class="attribute">├── KR3</span><span class="punctuation">:</span> <span class="string">平均故障恢复时间从30分钟降低到10分钟</span></span><br><span class="line"><span class="attribute">└── KR4</span><span class="punctuation">:</span> <span class="string">完成核心服务的容灾演练，覆盖率100%</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">O2</span><span class="punctuation">:</span> <span class="string">提升研发效率，加速产品迭代</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">需求平均交付周期从14天缩短到7天</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">代码review覆盖率从60%提升到100%</span></span><br><span class="line"><span class="attribute">├── KR3</span><span class="punctuation">:</span> <span class="string">自动化测试覆盖率从40%提升到80%</span></span><br><span class="line"><span class="attribute">└── KR4</span><span class="punctuation">:</span> <span class="string">部署频率从每周1次提升到每天1次</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">O3</span><span class="punctuation">:</span> <span class="string">建设技术影响力，打造学习型团队</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">团队成员人均输出技术文章2篇</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">组织内部技术分享会8次</span></span><br><span class="line"><span class="attribute">└── KR3</span><span class="punctuation">:</span> <span class="string">完成新人培训体系搭建，新人上手时间缩短50%</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="案例二：产品经理OKR"><a href="#案例二：产品经理OKR" class="headerlink" title="案例二：产品经理OKR"></a>案例二：产品经理OKR</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">【Q3 产品经理OKR】</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">O1</span><span class="punctuation">:</span> <span class="string">提升用户体验，打造极致产品</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">用户满意度NPS从30提升到50</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">核心功能用户留存率从40%提升到60%</span></span><br><span class="line"><span class="attribute">├── KR3</span><span class="punctuation">:</span> <span class="string">用户反馈处理率达到100%，平均响应时间&lt;24小时</span></span><br><span class="line"><span class="attribute">└── KR4</span><span class="punctuation">:</span> <span class="string">完成3次用户调研，产出调研报告</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">O2</span><span class="punctuation">:</span> <span class="string">驱动业务增长，实现商业价值</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">付费转化率从2%提升到5%</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">用户ARPU值从50元提升到80元</span></span><br><span class="line"><span class="attribute">└── KR3</span><span class="punctuation">:</span> <span class="string">新功能上线后DAU增长20%</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="案例三：个人OKR"><a href="#案例三：个人OKR" class="headerlink" title="案例三：个人OKR"></a>案例三：个人OKR</h3><figure class="highlight nestedtext"><table><tr><td class="code"><pre><span class="line"><span class="attribute">【Q3 个人OKR - 后端开发工程师】</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">O1</span><span class="punctuation">:</span> <span class="string">成为团队核心骨干，独当一面</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">独立负责完成2个核心模块的设计与开发</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">代码质量评分从B提升到A（bug率&lt;1%）</span></span><br><span class="line"><span class="attribute">└── KR3</span><span class="punctuation">:</span> <span class="string">主导完成1次技术方案评审</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">O2</span><span class="punctuation">:</span> <span class="string">提升技术深度，建立技术壁垒</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">深入学习分布式系统，完成《DDIA》读书笔记</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">输出2篇高质量技术博客</span></span><br><span class="line"><span class="attribute">└── KR3</span><span class="punctuation">:</span> <span class="string">获得1项云计算相关认证</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">O3</span><span class="punctuation">:</span> <span class="string">提升软技能，增强团队协作</span></span><br><span class="line"><span class="attribute">├── KR1</span><span class="punctuation">:</span> <span class="string">主动帮助2名新同事完成onboarding</span></span><br><span class="line"><span class="attribute">├── KR2</span><span class="punctuation">:</span> <span class="string">参与跨团队项目协作，获得合作方好评</span></span><br><span class="line"><span class="attribute">└── KR3</span><span class="punctuation">:</span> <span class="string">完成1次团队内部技术分享</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="OKR实施流程"><a href="#OKR实施流程" class="headerlink" title="OKR实施流程"></a>OKR实施流程</h2><h3 id="1-制定阶段（季度初）"><a href="#1-制定阶段（季度初）" class="headerlink" title="1. 制定阶段（季度初）"></a>1. 制定阶段（季度初）</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">第1周：</span><br><span class="line">├── 公司层面确定年度/季度战略目标</span><br><span class="line">├── 各部门负责人制定部门OKR</span><br><span class="line">└── 团队成员制定个人OKR</span><br><span class="line"></span><br><span class="line">第2周：</span><br><span class="line">├── OKR对齐会议，确保上下一致</span><br><span class="line">├── 横向对齐，确保跨部门协作</span><br><span class="line">└── 最终确认并公示所有OKR</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-执行阶段（季度中）"><a href="#2-执行阶段（季度中）" class="headerlink" title="2. 执行阶段（季度中）"></a>2. 执行阶段（季度中）</h3><figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">每周：</span><br><span class="line">├── 周会回顾<span class="variable">OKR</span>进展</span><br><span class="line">├── 更新<span class="variable">KR</span>完成进度</span><br><span class="line">└── 识别风险和阻碍</span><br><span class="line"></span><br><span class="line">每月：</span><br><span class="line">├── 月度<span class="variable">OKR</span>复盘会议</span><br><span class="line">├── 调整策略和行动计划</span><br><span class="line">└── 必要时调整<span class="variable">KR</span>（<span class="built_in">O</span>一般不变）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-复盘阶段（季度末）"><a href="#3-复盘阶段（季度末）" class="headerlink" title="3. 复盘阶段（季度末）"></a>3. 复盘阶段（季度末）</h3><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">季度末：</span><br><span class="line">├── 自评OKR完成情况（打分0<span class="string">-1</span>）</span><br><span class="line">├── 团队OKR复盘会议</span><br><span class="line">├── 总结经验教训</span><br><span class="line">└── 为下季度OKR制定做准备</span><br></pre></td></tr></table></figure>
+
+<h2 id="OKR评分标准"><a href="#OKR评分标准" class="headerlink" title="OKR评分标准"></a>OKR评分标准</h2><table>
+<thead>
+<tr>
+<th>分数</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.0</td>
+<td>完美达成</td>
+<td>可能目标设定过于保守</td>
+</tr>
+<tr>
+<td>0.7-0.9</td>
+<td>优秀</td>
+<td>理想的完成状态</td>
+</tr>
+<tr>
+<td>0.4-0.6</td>
+<td>一般</td>
+<td>有进步但未达预期</td>
+</tr>
+<tr>
+<td>0.0-0.3</td>
+<td>失败</td>
+<td>需要反思原因</td>
+</tr>
+</tbody></table>
+<p><strong>注意</strong>：OKR评分不应直接与绩效考核挂钩，否则会导致目标设定保守。</p>
+<h2 id="常见问题与解决方案"><a href="#常见问题与解决方案" class="headerlink" title="常见问题与解决方案"></a>常见问题与解决方案</h2><h3 id="问题1：OKR变成了任务清单"><a href="#问题1：OKR变成了任务清单" class="headerlink" title="问题1：OKR变成了任务清单"></a>问题1：OKR变成了任务清单</h3><p><strong>解决</strong>：KR应该是结果而非任务，问自己”完成这个能证明目标达成吗？”</p>
+<h3 id="问题2：目标设定过于保守"><a href="#问题2：目标设定过于保守" class="headerlink" title="问题2：目标设定过于保守"></a>问题2：目标设定过于保守</h3><p><strong>解决</strong>：鼓励挑战性目标，强调60-70%完成率是正常的</p>
+<h3 id="问题3：OKR与日常工作脱节"><a href="#问题3：OKR与日常工作脱节" class="headerlink" title="问题3：OKR与日常工作脱节"></a>问题3：OKR与日常工作脱节</h3><p><strong>解决</strong>：每周回顾OKR，将日常工作与OKR关联</p>
+<h3 id="问题4：跨部门OKR不对齐"><a href="#问题4：跨部门OKR不对齐" class="headerlink" title="问题4：跨部门OKR不对齐"></a>问题4：跨部门OKR不对齐</h3><p><strong>解决</strong>：建立OKR对齐机制，定期进行横向沟通</p>
+<h2 id="推荐工具"><a href="#推荐工具" class="headerlink" title="推荐工具"></a>推荐工具</h2><ul>
+<li><strong>飞书OKR</strong>：字节跳动出品，功能完善</li>
+<li><strong>Worktile</strong>：国产项目管理工具，支持OKR</li>
+<li><strong>Notion</strong>：灵活的文档工具，可自定义OKR模板</li>
+<li><strong>Weekdone</strong>：专业OKR管理工具</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>OKR的核心价值：</p>
+<ol>
+<li><strong>聚焦</strong>：让团队专注于最重要的事</li>
+<li><strong>对齐</strong>：确保上下左右目标一致</li>
+<li><strong>透明</strong>：全员可见，促进协作</li>
+<li><strong>挑战</strong>：鼓励设定有野心的目标</li>
+</ol>
+<p>成功实施OKR的关键：</p>
+<ul>
+<li>领导层的支持和参与</li>
+<li>持续的沟通和反馈</li>
+<li>与绩效考核适度分离</li>
+<li>建立学习和迭代的文化</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>《这就是OKR》- 约翰·杜尔</li>
+<li>《OKR工作法》- 克里斯蒂娜·沃特克</li>
+<li>Google re:Work OKR指南</li>
+</ul>
+]]></content>
+      <categories>
+        <category>管理</category>
+      </categories>
+      <tags>
+        <tag>OKR 绩效管理 团队管理 目标管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RuoYi-Cloud微服务框架入门与部署</title>
+    <url>/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spring Cloud</td>
+<td>微服务框架</td>
+</tr>
+<tr>
+<td>Spring Cloud Alibaba</td>
+<td>阿里巴巴微服务组件</td>
+</tr>
+<tr>
+<td>Nacos</td>
+<td>服务注册与配置中心</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>网关服务</td>
+</tr>
+<tr>
+<td>Sentinel</td>
+<td>流量控制</td>
+</tr>
+<tr>
+<td>Seata</td>
+<td>分布式事务</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>缓存</td>
+</tr>
+</tbody></table>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">ruoyi-cloud<span class="symbol">/</span></span><br><span class="line">├── ruoyi-api<span class="symbol">/</span>                    <span class="comment"># API模块</span></span><br><span class="line">│   ├── ruoyi-api-system<span class="symbol">/</span>        <span class="comment"># 系统API</span></span><br><span class="line">│   └── ruoyi-api-file<span class="symbol">/</span>          <span class="comment"># 文件API</span></span><br><span class="line">├── ruoyi-auth<span class="symbol">/</span>                   <span class="comment"># 认证中心</span></span><br><span class="line">├── ruoyi-common<span class="symbol">/</span>                 <span class="comment"># 通用模块</span></span><br><span class="line">│   ├── ruoyi-common-core<span class="symbol">/</span>       <span class="comment"># 核心模块</span></span><br><span class="line">│   ├── ruoyi-common-redis<span class="symbol">/</span>      <span class="comment"># Redis模块</span></span><br><span class="line">│   ├── ruoyi-common-security<span class="symbol">/</span>   <span class="comment"># 安全模块</span></span><br><span class="line">│   └── ruoyi-common-swagger<span class="symbol">/</span>    <span class="comment"># Swagger模块</span></span><br><span class="line">├── ruoyi-gateway<span class="symbol">/</span>                <span class="comment"># 网关服务</span></span><br><span class="line">├── ruoyi-modules<span class="symbol">/</span>                <span class="comment"># 业务模块</span></span><br><span class="line">│   ├── ruoyi-system<span class="symbol">/</span>            <span class="comment"># 系统模块</span></span><br><span class="line">│   ├── ruoyi-gen<span class="symbol">/</span>               <span class="comment"># 代码生成</span></span><br><span class="line">│   ├── ruoyi-job<span class="symbol">/</span>               <span class="comment"># 定时任务</span></span><br><span class="line">│   └── ruoyi-file<span class="symbol">/</span>              <span class="comment"># 文件服务</span></span><br><span class="line">├── ruoyi-visual<span class="symbol">/</span>                 <span class="comment"># 可视化模块</span></span><br><span class="line">│   └── ruoyi-monitor<span class="symbol">/</span>           <span class="comment"># 监控中心</span></span><br><span class="line">└── ruoyi-ui<span class="symbol">/</span>                     <span class="comment"># 前端项目</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义模块结构"><a href="#自定义模块结构" class="headerlink" title="自定义模块结构"></a>自定义模块结构</h2><p>按照你提供的结构，创建自定义业务模块：</p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">$&#123;artifactId&#125;/</span><br><span class="line">├─ pom.<span class="keyword">xml</span>                           <span class="title"># 根pom</span>（带profiles）</span><br><span class="line">├─ $&#123;artifactId&#125;-api/                <span class="comment"># API聚合模块</span></span><br><span class="line">│   ├─ $&#123;artifactId&#125;-local-api/      <span class="comment"># 单机启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   ├─ $&#123;artifactId&#125;-cloud-api/      <span class="comment"># 微服务启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   └─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">├─ $</span>&#123;artifactId&#125;-biz/                <span class="comment"># 业务逻辑模块</span></span><br><span class="line">│   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   └─ src</span>/main/java/...</span><br><span class="line">└─ $&#123;artifactId&#125;-<span class="literal">start</span>/              <span class="comment"># 启动模块</span></span><br><span class="line">    ├─ pom.<span class="keyword">xml</span></span><br><span class="line">    <span class="title">└─ src</span>/main/java/...</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nacos配置"><a href="#Nacos配置" class="headerlink" title="Nacos配置"></a>Nacos配置</h2><h3 id="1-安装Nacos"><a href="#1-安装Nacos" class="headerlink" title="1. 安装Nacos"></a>1. 安装Nacos</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载Nacos</span></span><br><span class="line">wget https://github.com/alibaba/nacos/releases/download/2.2.0/nacos-server-2.2.0.tar.gz</span><br><span class="line">tar -xvf nacos-server-2.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nacos/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单机模式启动</span></span><br><span class="line">./startup.sh -m standalone</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">startup.cmd -m standalone</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a href="http://localhost:8848/nacos%EF%BC%8C%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%EF%BC%9Anacos/nacos">http://localhost:8848/nacos，默认账号密码：nacos/nacos</a></p>
+<h3 id="2-服务注册配置"><a href="#2-服务注册配置" class="headerlink" title="2. 服务注册配置"></a>2. 服务注册配置</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-system</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置中心使用"><a href="#3-配置中心使用" class="headerlink" title="3. 配置中心使用"></a>3. 配置中心使用</h3><p>在Nacos控制台创建配置：</p>
+<ul>
+<li>Data ID: <code>ruoyi-system-dev.yml</code></li>
+<li>Group: <code>DEFAULT_GROUP</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Nacos配置内容</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9201</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud?useUnicode=true</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="单机调试模式"><a href="#单机调试模式" class="headerlink" title="单机调试模式"></a>单机调试模式</h2><h3 id="Profile配置"><a href="#Profile配置" class="headerlink" title="Profile配置"></a>Profile配置</h3><p>根pom.xml配置profiles：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>local<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 微服务模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动配置"><a href="#单机启动配置" class="headerlink" title="单机启动配置"></a>单机启动配置</h3><p><code>application-local.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用服务注册</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用配置中心</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动命令"><a href="#单机启动命令" class="headerlink" title="单机启动命令"></a>单机启动命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用local profile启动</span></span><br><span class="line">mvn spring-boot:run -Plocal</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者IDEA中设置Active Profiles为local</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="微服务模式部署"><a href="#微服务模式部署" class="headerlink" title="微服务模式部署"></a>微服务模式部署</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> Nacos (服务注册与配置中心)</span><br><span class="line"><span class="bullet">2.</span> MySQL + Redis</span><br><span class="line"><span class="bullet">3.</span> ruoyi-gateway (网关)</span><br><span class="line"><span class="bullet">4.</span> ruoyi-auth (认证中心)</span><br><span class="line"><span class="bullet">5.</span> ruoyi-system (系统服务)</span><br><span class="line"><span class="bullet">6.</span> 其他业务服务</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Docker-Compose部署"><a href="#2-Docker-Compose部署" class="headerlink" title="2. Docker Compose部署"></a>2. Docker Compose部署</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">nacos:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nacos/nacos-server:v2.2.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MODE=standalone</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8848:8848&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:8.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:6.0</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;6379:6379&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">ruoyi-gateway:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-gateway</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-auth:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-auth</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-system:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-modules/ruoyi-system</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-微服务启动命令"><a href="#3-微服务启动命令" class="headerlink" title="3. 微服务启动命令"></a>3. 微服务启动命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用cloud profile启动</span></span><br><span class="line">mvn spring-boot:run -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包</span></span><br><span class="line">mvn clean package -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行jar</span></span><br><span class="line">java -jar ruoyi-gateway.jar --spring.profiles.active=cloud</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h2><h3 id="Feign客户端定义"><a href="#Feign客户端定义" class="headerlink" title="Feign客户端定义"></a>Feign客户端定义</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ruoyi-api-system模块</span></span><br><span class="line"><span class="meta">@FeignClient(contextId = &quot;remoteUserService&quot;, </span></span><br><span class="line"><span class="meta">             value = &quot;ruoyi-system&quot;,</span></span><br><span class="line"><span class="meta">             fallbackFactory = RemoteUserFallbackFactory.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">RemoteUserService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/info/&#123;username&#125;&quot;)</span></span><br><span class="line">    R&lt;LoginUser&gt; <span class="title function_">getUserInfo</span><span class="params">(<span class="meta">@PathVariable(&quot;username&quot;)</span> String username)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务调用-1"><a href="#服务调用-1" class="headerlink" title="服务调用"></a>服务调用</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SysLoginService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RemoteUserService remoteUserService;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> LoginUser <span class="title function_">login</span><span class="params">(String username)</span> &#123;</span><br><span class="line">        R&lt;LoginUser&gt; result = remoteUserService.getUserInfo(username);</span><br><span class="line">        <span class="keyword">return</span> result.getData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-Nacos连接失败"><a href="#1-Nacos连接失败" class="headerlink" title="1. Nacos连接失败"></a>1. Nacos连接失败</h3><p>检查Nacos是否启动，namespace是否正确配置</p>
+<h3 id="2-服务注册不上"><a href="#2-服务注册不上" class="headerlink" title="2. 服务注册不上"></a>2. 服务注册不上</h3><p>检查spring.application.name是否配置，网络是否通畅</p>
+<h3 id="3-配置不生效"><a href="#3-配置不生效" class="headerlink" title="3. 配置不生效"></a>3. 配置不生效</h3><p>确认Data ID格式：<code>$&#123;spring.application.name&#125;-$&#123;profile&#125;.$&#123;file-extension&#125;</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>RuoYi-Cloud通过Nacos实现了服务注册与配置管理，支持单机和微服务两种部署模式。开发时使用单机模式方便调试，生产环境使用微服务模式实现高可用。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://doc.ruoyi.vip/ruoyi-cloud/">RuoYi-Cloud官方文档</a></li>
+<li><a href="https://nacos.io/zh-cn/docs/quick-start.html">Nacos官方文档</a></li>
+<li><a href="https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/zh-cn/">Spring Cloud Alibaba</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>框架介绍</category>
+      </categories>
+      <tags>
+        <tag>RuoYi SpringCloud Nacos 微服务 Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI辅助编程工具对比：Cursor、Claude Code、Codex与Antigravity</title>
+    <url>/2025/01/15/AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2025-2026年，AI辅助编程工具已从”代码补全”全面迈入”智能Agent”时代。本文从<strong>大型项目支撑、需求规划、代码修复、团队协作、团队成本</strong>五个维度，深度对比四款主流AI编程工具——Cursor、Claude Code、Codex（OpenAI）和Antigravity（Google），帮助5-20人规模的开发团队做出选择。</p>
+<h2 id="工具概览"><a href="#工具概览" class="headerlink" title="工具概览"></a>工具概览</h2><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>开发商</th>
+<th>类型</th>
+<th>核心定位</th>
+<th>官方默认模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cursor</td>
+<td>Anysphere</td>
+<td>AI IDE（VS Code Fork）</td>
+<td>日常编码的智能IDE</td>
+<td>GPT-4o &#x2F; Claude Sonnet（多模型可切换）</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>Anthropic</td>
+<td>终端Agent</td>
+<td>终端优先的自主编程Agent</td>
+<td>Claude Opus &#x2F; Sonnet 4</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>OpenAI</td>
+<td>后台Agent + 桌面端</td>
+<td>可委托的后台编码Agent</td>
+<td>GPT系列（o3&#x2F;o4-mini等）</td>
+</tr>
+<tr>
+<td>Antigravity</td>
+<td>Google</td>
+<td>Agent-first IDE + CLI</td>
+<td>多Agent并行编排平台</td>
+<td>Gemini 3.1 Pro &#x2F; 3 Flash + Claude Opus 4.6等</td>
+</tr>
+</tbody></table>
+<h2 id="一、大型项目支撑能力"><a href="#一、大型项目支撑能力" class="headerlink" title="一、大型项目支撑能力"></a>一、大型项目支撑能力</h2><p>大型项目（代码量10万行以上、多模块、多仓库）对AI工具的上下文管理和架构理解能力是极大考验。</p>
+<h3 id="Cursor-⭐⭐⭐"><a href="#Cursor-⭐⭐⭐" class="headerlink" title="Cursor ⭐⭐⭐"></a>Cursor ⭐⭐⭐</h3><p>Cursor通过深度代码索引（<code>@codebase</code>）构建项目的语义地图，中小型项目体验极好。但当代码量超过<strong>50万行</strong>时，索引性能下降明显，上下文窗口难以承载复杂的跨文件特性。Composer模式支持多文件编辑，但在超大型单体仓库中容易出现”上下文遗忘”。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">适合场景：中小型项目（&lt;50万行）的日常开发</span><br><span class="line">局限：超大型项目索引瓶颈，长会话上下文衰减</span><br></pre></td></tr></table></figure>
+
+<h3 id="Claude-Code-⭐⭐⭐⭐"><a href="#Claude-Code-⭐⭐⭐⭐" class="headerlink" title="Claude Code ⭐⭐⭐⭐"></a>Claude Code ⭐⭐⭐⭐</h3><p>Claude Code采用”动态读取”策略——不依赖预构建索引，而是实时遍历文件系统、追踪引用关系。这种方式避免了索引过期的问题，在复杂架构的代码重构和跨模块调试中表现出色。但高强度使用会快速消耗配额。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">适合场景：复杂架构重构、深度调试、跨模块修改</span><br><span class="line">局限：高配额消耗，长会话需要手动分段</span><br></pre></td></tr></table></figure>
+
+<h3 id="Codex-⭐⭐⭐"><a href="#Codex-⭐⭐⭐" class="headerlink" title="Codex ⭐⭐⭐"></a>Codex ⭐⭐⭐</h3><p>Codex擅长处理”可隔离的明确任务”——如批量迁移中间件、修复TypeScript类型错误等。每次任务从全新上下文启动，避免了上下文污染，但也意味着它可能遗漏项目特定的约定和规范。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">适合场景：批量重构、标准化修复、可隔离的后台任务</span><br><span class="line">局限：缺乏持续项目记忆，需要显式提供项目规范</span><br></pre></td></tr></table></figure>
+
+<h3 id="Antigravity-⭐⭐⭐⭐⭐"><a href="#Antigravity-⭐⭐⭐⭐⭐" class="headerlink" title="Antigravity ⭐⭐⭐⭐⭐"></a>Antigravity ⭐⭐⭐⭐⭐</h3><p>Antigravity的Agent-first架构是处理大型项目的杀手级特性。通过<strong>Agent Manager</strong>可以同时派发多个自主Agent——一个处理后端逻辑，一个构建前端，一个编写测试——并行推进。每个Agent能跨IDE、终端和内置浏览器操作，并生成Artifacts（实现计划、截图、浏览器录屏）供人工审核。</p>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">适合场景：大型复杂项目、多模块并行开发</span><br><span class="line">优势：多Agent并行、跨工具链操作、可验证的<span class="keyword">Artifacts</span>输出</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、需求规划能力"><a href="#二、需求规划能力" class="headerlink" title="二、需求规划能力"></a>二、需求规划能力</h2><p>从模糊需求到可执行的技术方案，需求规划能力决定了工具在”从0到1”阶段的价值。</p>
+<h3 id="Cursor-⭐⭐"><a href="#Cursor-⭐⭐" class="headerlink" title="Cursor ⭐⭐"></a>Cursor ⭐⭐</h3><p>Cursor的核心优势在代码级别——Tab补全和Cmd+K内联编辑极其流畅，但它本质是一个”编辑器增强”工具。对于复杂需求的分解和规划，需要开发者自己完成或依赖外部工具。</p>
+<h3 id="Claude-Code-⭐⭐⭐⭐-1"><a href="#Claude-Code-⭐⭐⭐⭐-1" class="headerlink" title="Claude Code ⭐⭐⭐⭐"></a>Claude Code ⭐⭐⭐⭐</h3><p>Claude Code支持结构化的任务分解流程。通过<code>CLAUDE.md</code>文件定义项目规范后，它能分析需求、生成任务计划、逐步执行：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 典型工作流</span></span><br><span class="line"><span class="bullet">1.</span> 用户描述需求</span><br><span class="line"><span class="bullet">2.</span> Claude Code分析并生成任务计划</span><br><span class="line"><span class="bullet">3.</span> 用户审核确认</span><br><span class="line"><span class="bullet">4.</span> 按计划逐步执行，每步可中断调整</span><br></pre></td></tr></table></figure>
+
+<p>Claude的推理能力在需求分析阶段表现突出，能识别潜在的技术风险和边界情况。</p>
+<h3 id="Codex-⭐⭐⭐-1"><a href="#Codex-⭐⭐⭐-1" class="headerlink" title="Codex ⭐⭐⭐"></a>Codex ⭐⭐⭐</h3><p>Codex支持任务委托——你可以在ChatGPT中描述需求并委派给Codex去执行，然后回来检查完成的PR。但需求分解的深度不如Claude Code，更适合已经明确的技术任务。</p>
+<h3 id="Antigravity-⭐⭐⭐⭐⭐-1"><a href="#Antigravity-⭐⭐⭐⭐⭐-1" class="headerlink" title="Antigravity ⭐⭐⭐⭐⭐"></a>Antigravity ⭐⭐⭐⭐⭐</h3><p>Antigravity在需求规划方面有完整的内置工作流：</p>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">需求 → 实现计划（implementation_plan.<span class="built_in">md</span>）</span><br><span class="line">     → 用户审核 &amp; 反馈</span><br><span class="line">     → 任务分解（task.<span class="built_in">md</span>）</span><br><span class="line">     → 逐步执行 &amp; 进度跟踪</span><br><span class="line">     → 变更总结（walkthrough.<span class="built_in">md</span>）</span><br></pre></td></tr></table></figure>
+
+<p>这套<strong>Plan → Review → Execute → Verify</strong>的流程是工具原生支持的，不是提示词技巧，而是平台能力。特别是实现计划会按组件分组、标注文件变更类型（NEW&#x2F;MODIFY&#x2F;DELETE），并包含验证方案。</p>
+<h2 id="三、代码修复能力"><a href="#三、代码修复能力" class="headerlink" title="三、代码修复能力"></a>三、代码修复能力</h2><h3 id="Cursor-⭐⭐⭐⭐"><a href="#Cursor-⭐⭐⭐⭐" class="headerlink" title="Cursor ⭐⭐⭐⭐"></a>Cursor ⭐⭐⭐⭐</h3><p>Cursor的代码修复体验最为流畅：选中有问题的代码，Cmd+K描述问题，AI直接内联修改。对于IDE中的lint错误和类型错误，Cursor能快速定位并修复。适合”看到错误→立即修”的快速迭代节奏。</p>
+<h3 id="Claude-Code-⭐⭐⭐⭐⭐"><a href="#Claude-Code-⭐⭐⭐⭐⭐" class="headerlink" title="Claude Code ⭐⭐⭐⭐⭐"></a>Claude Code ⭐⭐⭐⭐⭐</h3><p>Claude Code在复杂Bug修复方面表现最强。它能自主运行测试、分析错误堆栈、遍历相关代码、提出修复方案并验证。特别是涉及多文件关联的深层Bug，Claude Code的推理深度是明显优势。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 典型调试流程</span></span><br><span class="line">claude <span class="string">&quot;这个API返回500错误，帮我找到根因并修复&quot;</span></span><br><span class="line"><span class="comment"># Claude Code会：读取日志 → 追踪调用链 → 定位问题 → 修复 → 运行测试验证</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Codex-⭐⭐⭐-2"><a href="#Codex-⭐⭐⭐-2" class="headerlink" title="Codex ⭐⭐⭐"></a>Codex ⭐⭐⭐</h3><p>Codex适合批量标准化修复——如”修复所有TypeScript严格模式报错”或”将所有回调改为async&#x2F;await”。可以委派任务后离开，回来检查结果。但对复杂逻辑Bug的自主诊断能力不及Claude Code。</p>
+<h3 id="Antigravity-⭐⭐⭐⭐"><a href="#Antigravity-⭐⭐⭐⭐" class="headerlink" title="Antigravity ⭐⭐⭐⭐"></a>Antigravity ⭐⭐⭐⭐</h3><p>Antigravity的代码修复结合了IDE集成和Agent能力。它能感知IDE的lint反馈，在修复时自动关联lint错误ID。同时支持启动浏览器子Agent录屏验证UI问题，生成修复前后的可视化对比。不过在纯逻辑推理深度上，使用Claude Opus模型时与Claude Code相当。</p>
+<h2 id="四、团队协作"><a href="#四、团队协作" class="headerlink" title="四、团队协作"></a>四、团队协作</h2><p>对于5-20人的开发团队，协作能力直接影响工具的实际价值。</p>
+<h3 id="Cursor-⭐⭐⭐-1"><a href="#Cursor-⭐⭐⭐-1" class="headerlink" title="Cursor ⭐⭐⭐"></a>Cursor ⭐⭐⭐</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>团队管理后台</td>
+<td>✅ 统一计费和管理</td>
+</tr>
+<tr>
+<td>共享规则&#x2F;插件</td>
+<td>✅ 团队市场</td>
+</tr>
+<tr>
+<td>隐私模式</td>
+<td>✅ 团队级别</td>
+</tr>
+<tr>
+<td>SSO</td>
+<td>✅ SAML&#x2F;OIDC</td>
+</tr>
+<tr>
+<td>使用分析</td>
+<td>✅ 管理员可查看</td>
+</tr>
+<tr>
+<td>代码审查集成</td>
+<td>✅ BugBot</td>
+</tr>
+</tbody></table>
+<p>Cursor Teams提供基本的团队协作基础设施，但工具本质上是个人IDE，协作更多体现在管理层面而非工作流层面。</p>
+<h3 id="Claude-Code-⭐⭐⭐"><a href="#Claude-Code-⭐⭐⭐" class="headerlink" title="Claude Code ⭐⭐⭐"></a>Claude Code ⭐⭐⭐</h3><p>Claude Code的Team计划提供Standard和Premium两种席位。通过<code>CLAUDE.md</code>文件可以统一团队的编码规范和项目上下文，但缺乏原生的多人协同机制——本质上是每个人各自使用各自的终端Agent。</p>
+<h3 id="Codex-⭐⭐⭐-3"><a href="#Codex-⭐⭐⭐-3" class="headerlink" title="Codex ⭐⭐⭐"></a>Codex ⭐⭐⭐</h3><p>Codex的Business&#x2F;Enterprise计划提供工作区级别的信用额度池，适合团队共享资源。但它更像是”每个人的后台助手”，缺乏团队成员之间的协作编排能力。</p>
+<h3 id="Antigravity-⭐⭐⭐⭐⭐-2"><a href="#Antigravity-⭐⭐⭐⭐⭐-2" class="headerlink" title="Antigravity ⭐⭐⭐⭐⭐"></a>Antigravity ⭐⭐⭐⭐⭐</h3><p>Antigravity在团队协作方面有本质性的差异化：</p>
+<ul>
+<li><strong>多Agent并行</strong>：团队成员可以同时作为”架构师”角色管理各自的Agent编队，不同成员的Agent可以处理不同的模块和任务</li>
+<li><strong>Artifacts共享</strong>：实现计划、任务进度、变更总结等Artifacts天然可以作为团队沟通的载体</li>
+<li><strong>Agent-to-Agent协议（A2A）</strong>：支持Agent之间安全的任务交接和协作</li>
+<li><strong>Human-in-the-Loop</strong>：Agent输出需经人工审核门禁，确保代码质量</li>
+<li><strong>Google Cloud集成</strong>：企业版通过Gemini Enterprise Agent Platform接入，与Google Workspace深度整合</li>
+</ul>
+<p>对于5-20人团队，Antigravity的多Agent架构意味着团队的AI生产力是<strong>乘法效应</strong>而非加法——每个成员都能同时调度多个Agent并行工作。</p>
+<h2 id="五、团队成本分析（5-20人团队）"><a href="#五、团队成本分析（5-20人团队）" class="headerlink" title="五、团队成本分析（5-20人团队）"></a>五、团队成本分析（5-20人团队）</h2><p>以下按月度计算，考虑中高强度的AI编程使用量。</p>
+<h3 id="定价方案一览"><a href="#定价方案一览" class="headerlink" title="定价方案一览"></a>定价方案一览</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>个人方案</th>
+<th>团队方案</th>
+<th>高级席位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cursor</td>
+<td>$20&#x2F;月 Pro</td>
+<td>$40&#x2F;人&#x2F;月 Teams（年付$32）</td>
+<td>$120&#x2F;人&#x2F;月 Premium（5x额度）</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>$20&#x2F;月 Pro</td>
+<td>Team计划（含Standard席位）</td>
+<td>Premium席位（更高配额）</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>$20&#x2F;月 Plus</td>
+<td>$100-200&#x2F;月 Pro</td>
+<td>Business&#x2F;Enterprise 定制</td>
+</tr>
+<tr>
+<td>Antigravity</td>
+<td>$20&#x2F;月 Pro（Google AI）</td>
+<td>$100&#x2F;月 Ultra（5x额度）</td>
+<td>$200&#x2F;月 Ultra顶配（20x额度）</td>
+</tr>
+</tbody></table>
+<h3 id="5人团队月度成本估算"><a href="#5人团队月度成本估算" class="headerlink" title="5人团队月度成本估算"></a>5人团队月度成本估算</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>Cursor</th>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Antigravity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基础方案</td>
+<td>$200（$40×5）</td>
+<td>~$150-250</td>
+<td>~$500（$100×5）</td>
+<td>$100-200</td>
+</tr>
+<tr>
+<td>推荐配置</td>
+<td>$360（3标准+2高级）</td>
+<td>~$300-500</td>
+<td>~$500-1000</td>
+<td>$200</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>按席位计费</td>
+<td>按席位+用量</td>
+<td>按信用额度</td>
+<td>Ultra可多人共享高额度</td>
+</tr>
+</tbody></table>
+<h3 id="20人团队月度成本估算"><a href="#20人团队月度成本估算" class="headerlink" title="20人团队月度成本估算"></a>20人团队月度成本估算</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>Cursor</th>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Antigravity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基础方案</td>
+<td>$800（$40×20）</td>
+<td>~$600-1000</td>
+<td>~$2000-4000</td>
+<td>$500-1000</td>
+</tr>
+<tr>
+<td>推荐配置</td>
+<td>$1440（15标准+5高级）</td>
+<td>~$1200-2000</td>
+<td>~$2000-4000</td>
+<td>$1000-2000</td>
+</tr>
+<tr>
+<td>说明</td>
+<td>席位制，成本线性增长</td>
+<td>席位制</td>
+<td>信用额度池</td>
+<td>Ultra共享额度，边际成本低</td>
+</tr>
+</tbody></table>
+<h3 id="💡-Antigravity-Ultra的成本优势"><a href="#💡-Antigravity-Ultra的成本优势" class="headerlink" title="💡 Antigravity Ultra的成本优势"></a>💡 Antigravity Ultra的成本优势</h3><p>Antigravity的Ultra计划（$100&#x2F;月或$200&#x2F;月）提供的是<strong>共享额度池</strong>，而非按席位计费。这意味着：</p>
+<ul>
+<li><strong>$200&#x2F;月的Ultra顶配计划</strong>提供20倍于Pro的使用量，一个订阅即可支撑小型团队的高强度使用</li>
+<li>结合Google Cloud的Gemini Enterprise方案，企业可以获得组织级别的额度池和管理控制</li>
+<li>对于5-20人团队，Antigravity的<strong>人均成本可以做到最低</strong>，同时提供最高的AI生产力</li>
+</ul>
+<h2 id="官方模型智能度对比"><a href="#官方模型智能度对比" class="headerlink" title="官方模型智能度对比"></a>官方模型智能度对比</h2><p>AI编程工具的表现很大程度上取决于底层模型的能力。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Cursor</th>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Antigravity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认模型</td>
+<td>GPT-4o + Claude Sonnet</td>
+<td>Claude Opus&#x2F;Sonnet 4</td>
+<td>GPT o3&#x2F;o4-mini</td>
+<td>Gemini 3.1 Pro + 可切换</td>
+</tr>
+<tr>
+<td>模型选择灵活性</td>
+<td>⭐⭐⭐⭐⭐ 支持多家模型</td>
+<td>⭐⭐ 仅Claude系列</td>
+<td>⭐⭐ 仅GPT系列</td>
+<td>⭐⭐⭐⭐⭐ Gemini + Claude + GPT</td>
+</tr>
+<tr>
+<td>推理深度</td>
+<td>取决于选用模型</td>
+<td>⭐⭐⭐⭐⭐ Claude Opus极强</td>
+<td>⭐⭐⭐⭐ o3推理强</td>
+<td>⭐⭐⭐⭐⭐ 可选Opus&#x2F;Gemini Pro</td>
+</tr>
+<tr>
+<td>代码生成质量</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐ 多模型取长补短</td>
+</tr>
+<tr>
+<td>上下文窗口</td>
+<td>受模型限制</td>
+<td>Claude系列窗口大</td>
+<td>中等</td>
+<td>Gemini超长上下文</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>关键洞察</strong>：Antigravity的独特优势在于<strong>多模型自由切换</strong>——你可以在同一个项目中混用Gemini 3.1 Pro（超长上下文）、Claude Opus 4.6（深度推理）和GPT系列，根据任务特点选择最合适的模型。</p>
+</blockquote>
+<h2 id="综合评分"><a href="#综合评分" class="headerlink" title="综合评分"></a>综合评分</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Cursor</th>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Antigravity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大型项目</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>需求规划</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>代码修复</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>团队协作</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>团队成本</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>模型智能度</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>学习成本</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><h3 id="选择Cursor当："><a href="#选择Cursor当：" class="headerlink" title="选择Cursor当："></a>选择Cursor当：</h3><ul>
+<li>团队习惯VS Code，希望<strong>最低学习成本</strong>的AI增强</li>
+<li>以日常编码和快速迭代为主</li>
+<li>预算有限，需要按席位控制成本</li>
+</ul>
+<h3 id="选择Claude-Code当："><a href="#选择Claude-Code当：" class="headerlink" title="选择Claude Code当："></a>选择Claude Code当：</h3><ul>
+<li>团队有终端重度用户</li>
+<li>经常需要<strong>深度Bug调试</strong>和复杂代码推理</li>
+<li>项目对代码质量要求极高</li>
+</ul>
+<h3 id="选择Codex当："><a href="#选择Codex当：" class="headerlink" title="选择Codex当："></a>选择Codex当：</h3><ul>
+<li>有大量可标准化的<strong>批量重构任务</strong></li>
+<li>希望将任务委派后台异步执行</li>
+<li>已深度使用OpenAI生态</li>
+</ul>
+<h3 id="选择Antigravity当："><a href="#选择Antigravity当：" class="headerlink" title="选择Antigravity当："></a>选择Antigravity当：</h3><ul>
+<li>5-20人团队需要<strong>最高性价比</strong>的AI编程方案</li>
+<li>大型复杂项目需要<strong>多Agent并行</strong>推进</li>
+<li>需要完整的<strong>需求→计划→执行→验证</strong>工作流</li>
+<li>希望灵活切换多家模型，取各家之长</li>
+<li>重视团队协作和AI生产力的乘法效应</li>
+</ul>
+<h2 id="组合使用策略"><a href="#组合使用策略" class="headerlink" title="组合使用策略"></a>组合使用策略</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">2026</span><span class="string">年高效开发流程：</span></span><br><span class="line"></span><br><span class="line"><span class="attr">1. Antigravity:</span> <span class="string">需求分析</span> <span class="string">→</span> <span class="string">生成实现计划</span> <span class="string">→</span> <span class="string">多Agent并行开发</span></span><br><span class="line"><span class="attr">2. Claude Code:</span> <span class="string">深度调试复杂Bug，终端级自主修复</span></span><br><span class="line"><span class="attr">3. Cursor:</span> <span class="string">日常编码，快速补全和小型重构</span></span><br><span class="line"><span class="attr">4. Codex:</span> <span class="string">委派批量重构、标准化修复等后台任务</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>四款工具各有所长：</p>
+<ul>
+<li><strong>Cursor</strong>——最佳日常编码IDE体验，上手零门槛</li>
+<li><strong>Claude Code</strong>——最强推理和调试能力，终端极客之选</li>
+<li><strong>Codex</strong>——最佳后台委托Agent，批量任务专家</li>
+<li><strong>Antigravity</strong>——最佳团队AI编程平台，多Agent并行 + 高性价比</li>
+</ul>
+<p>对于<strong>5-20人的开发团队</strong>，如果只能选一个工具，Antigravity的Ultra方案提供了最高的性价比和最强的协作能力；如果预算允许组合使用，建议以Antigravity为主力平台，辅以Claude Code处理深度调试任务。</p>
+<blockquote>
+<p><strong>注意</strong>：AI工具领域变化极快，定价和功能可能随时调整。建议在做采购决策前，访问各工具官网确认最新信息。</p>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://cursor.com/">Cursor官网</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code文档</a></li>
+<li><a href="https://openai.com/codex">OpenAI Codex</a></li>
+<li><a href="https://antigravity.google/">Google Antigravity</a></li>
+<li><a href="https://ai.google/plans/">Google AI订阅方案</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>开发工具</category>
+      </categories>
+      <tags>
+        <tag>AI编程 Cursor ClaudeCode Codex Antigravity 开发工具</tag>
+      </tags>
+  </entry>
+</search>

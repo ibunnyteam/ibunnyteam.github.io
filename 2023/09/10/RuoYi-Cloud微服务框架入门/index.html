@@ -1,0 +1,655 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Lional Personal Blog">
+    <title>RuoYi-Cloud微服务框架入门与部署 - Lional Personal Blog</title>
+    <meta name="author" content="Lional">
+    
+    
+    
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lional","sameAs":[]},"articleBody":"前言RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。\n技术栈\n\n\n技术\n说明\n\n\n\nSpring Cloud\n微服务框架\n\n\nSpring Cloud Alibaba\n阿里巴巴微服务组件\n\n\nNacos\n服务注册与配置中心\n\n\nGateway\n网关服务\n\n\nSentinel\n流量控制\n\n\nSeata\n分布式事务\n\n\nMySQL\n数据库\n\n\nRedis\n缓存\n\n\n项目结构12345678910111213141516171819ruoyi-cloud/├── ruoyi-api/                    # API模块│   ├── ruoyi-api-system/        # 系统API│   └── ruoyi-api-file/          # 文件API├── ruoyi-auth/                   # 认证中心├── ruoyi-common/                 # 通用模块│   ├── ruoyi-common-core/       # 核心模块│   ├── ruoyi-common-redis/      # Redis模块│   ├── ruoyi-common-security/   # 安全模块│   └── ruoyi-common-swagger/    # Swagger模块├── ruoyi-gateway/                # 网关服务├── ruoyi-modules/                # 业务模块│   ├── ruoyi-system/            # 系统模块│   ├── ruoyi-gen/               # 代码生成│   ├── ruoyi-job/               # 定时任务│   └── ruoyi-file/              # 文件服务├── ruoyi-visual/                 # 可视化模块│   └── ruoyi-monitor/           # 监控中心└── ruoyi-ui/                     # 前端项目\n\n自定义模块结构按照你提供的结构，创建自定义业务模块：\n12345678910111213141516$&#123;artifactId&#125;/├─ pom.xml                           # 根pom（带profiles）├─ $&#123;artifactId&#125;-api/                # API聚合模块│   ├─ $&#123;artifactId&#125;-local-api/      # 单机启动模块│   │   ├─ pom.xml│   │   └─ src/main/java/...│   ├─ $&#123;artifactId&#125;-cloud-api/      # 微服务启动模块│   │   ├─ pom.xml│   │   └─ src/main/java/...│   └─ pom.xml├─ $&#123;artifactId&#125;-biz/                # 业务逻辑模块│   ├─ pom.xml│   └─ src/main/java/...└─ $&#123;artifactId&#125;-start/              # 启动模块    ├─ pom.xml    └─ src/main/java/...\n\nNacos配置1. 安装Nacos12345678910# 下载Nacoswget https://github.com/alibaba/nacos/releases/download/2.2.0/nacos-server-2.2.0.tar.gztar -xvf nacos-server-2.2.0.tar.gzcd nacos/bin# 单机模式启动./startup.sh -m standalone# Windowsstartup.cmd -m standalone\n\n访问 http://localhost:8848/nacos，默认账号密码：nacos/nacos\n2. 服务注册配置12345678910111213# application.ymlspring:  application:    name: ruoyi-system  cloud:    nacos:      discovery:        server-addr: 127.0.0.1:8848        namespace: dev      config:        server-addr: 127.0.0.1:8848        namespace: dev        file-extension: yml\n\n3. 配置中心使用在Nacos控制台创建配置：\n\nData ID: ruoyi-system-dev.yml\nGroup: DEFAULT_GROUP\n\n12345678910# Nacos配置内容server:  port: 9201spring:  datasource:    driver-class-name: com.mysql.cj.jdbc.Driver    url: jdbc:mysql://localhost:3306/ry-cloud?useUnicode=true    username: root    password: password\n\n单机调试模式Profile配置根pom.xml配置profiles：\n12345678910111213141516171819&lt;profiles&gt;    &lt;!-- 单机模式 --&gt;    &lt;profile&gt;        &lt;id&gt;local&lt;/id&gt;        &lt;properties&gt;            &lt;profile.active&gt;local&lt;/profile.active&gt;        &lt;/properties&gt;        &lt;activation&gt;            &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;        &lt;/activation&gt;    &lt;/profile&gt;    &lt;!-- 微服务模式 --&gt;    &lt;profile&gt;        &lt;id&gt;cloud&lt;/id&gt;        &lt;properties&gt;            &lt;profile.active&gt;cloud&lt;/profile.active&gt;        &lt;/properties&gt;    &lt;/profile&gt;&lt;/profiles&gt;\n\n单机启动配置application-local.yml:\n12345678910111213141516spring:  profiles:    active: local  cloud:    nacos:      discovery:        enabled: false  # 禁用服务注册      config:        enabled: false  # 禁用配置中心# 直接配置数据源spring:  datasource:    url: jdbc:mysql://localhost:3306/ry-cloud    username: root    password: password\n\n单机启动命令1234# 使用local profile启动mvn spring-boot:run -Plocal# 或者IDEA中设置Active Profiles为local\n\n微服务模式部署1. 启动顺序1234561. Nacos (服务注册与配置中心)2. MySQL + Redis3. ruoyi-gateway (网关)4. ruoyi-auth (认证中心)5. ruoyi-system (系统服务)6. 其他业务服务\n\n2. Docker Compose部署123456789101112131415161718192021222324252627282930313233343536373839version: &#x27;3&#x27;services:  nacos:    image: nacos/nacos-server:v2.2.0    environment:      - MODE=standalone    ports:      - &quot;8848:8848&quot;      mysql:    image: mysql:8.0    environment:      - MYSQL_ROOT_PASSWORD=root    ports:      - &quot;3306:3306&quot;      redis:    image: redis:6.0    ports:      - &quot;6379:6379&quot;      ruoyi-gateway:    build: ./ruoyi-gateway    ports:      - &quot;8080:8080&quot;    depends_on:      - nacos        ruoyi-auth:    build: ./ruoyi-auth    depends_on:      - nacos      - redis        ruoyi-system:    build: ./ruoyi-modules/ruoyi-system    depends_on:      - nacos      - mysql\n\n3. 微服务启动命令12345678# 使用cloud profile启动mvn spring-boot:run -Pcloud# 打包mvn clean package -Pcloud# 运行jarjava -jar ruoyi-gateway.jar --spring.profiles.active=cloud\n\n服务调用Feign客户端定义123456789// ruoyi-api-system模块@FeignClient(contextId = &quot;remoteUserService&quot;,              value = &quot;ruoyi-system&quot;,             fallbackFactory = RemoteUserFallbackFactory.class)public interface RemoteUserService &#123;        @GetMapping(&quot;/user/info/&#123;username&#125;&quot;)    R&lt;LoginUser&gt; getUserInfo(@PathVariable(&quot;username&quot;) String username);&#125;\n\n服务调用1234567891011@Servicepublic class SysLoginService &#123;        @Autowired    private RemoteUserService remoteUserService;        public LoginUser login(String username) &#123;        R&lt;LoginUser&gt; result = remoteUserService.getUserInfo(username);        return result.getData();    &#125;&#125;\n\n常见问题1. Nacos连接失败检查Nacos是否启动，namespace是否正确配置\n2. 服务注册不上检查spring.application.name是否配置，网络是否通畅\n3. 配置不生效确认Data ID格式：$&#123;spring.application.name&#125;-$&#123;profile&#125;.$&#123;file-extension&#125;\n总结RuoYi-Cloud通过Nacos实现了服务注册与配置管理，支持单机和微服务两种部署模式。开发时使用单机模式方便调试，生产环境使用微服务模式实现高可用。\n参考资料\nRuoYi-Cloud官方文档\nNacos官方文档\nSpring Cloud Alibaba\n\n","dateCreated":"2023-09-10T15:00:00+08:00","dateModified":"2026-06-20T10:40:30+08:00","datePublished":"2023-09-10T15:00:00+08:00","description":"","headline":"RuoYi-Cloud微服务框架入门与部署","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"},"publisher":{"@type":"Organization","name":"Lional","sameAs":[]},"url":"https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/","keywords":"RuoYi SpringCloud Nacos 微服务 Java"}</script>
+    <meta name="description" content="前言RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。 技术栈   技术 说明    Spring Cloud 微服务框架   Spring Cloud Alibaba 阿里巴巴微服务组件   Nacos 服务注册与配置中心   Gateway 网关服务   Sentinel">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="RuoYi-Cloud微服务框架入门与部署">
+<meta property="og:url" content="https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Lional Personal Blog">
+<meta property="og:description" content="前言RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。 技术栈   技术 说明    Spring Cloud 微服务框架   Spring Cloud Alibaba 阿里巴巴微服务组件   Nacos 服务注册与配置中心   Gateway 网关服务   Sentinel">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-10T07:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-20T02:40:30.650Z">
+<meta property="article:author" content="Lional">
+<meta property="article:tag" content="RuoYi SpringCloud Nacos 微服务 Java">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/style-pyzjx4fl8qnrustkcsqwl7aq27fg196xvh5ke0oeiannb8m2p0zphy8rqohr.min.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Lional Personal Blog
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="打开链接: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="首页"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/resume"
+                            
+                            rel="noopener"
+                            title="个人简历"
+                        >
+                        <i class="sidebar-button-icon fa fa-book" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">个人简历</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="分类"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="标签"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="归档"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="搜索"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="关于"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/3dseals"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            RuoYi-Cloud微服务框架入门与部署
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2023-09-10T15:00:00+08:00">
+	
+		    2023 年 9 月 10 日
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/">框架介绍</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>RuoYi-Cloud是基于Spring Cloud的微服务权限管理系统，采用前后端分离架构。本文介绍如何使用Nacos进行微服务管理，以及单机调试与微服务模式部署的方法。</p>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Spring Cloud</td>
+<td>微服务框架</td>
+</tr>
+<tr>
+<td>Spring Cloud Alibaba</td>
+<td>阿里巴巴微服务组件</td>
+</tr>
+<tr>
+<td>Nacos</td>
+<td>服务注册与配置中心</td>
+</tr>
+<tr>
+<td>Gateway</td>
+<td>网关服务</td>
+</tr>
+<tr>
+<td>Sentinel</td>
+<td>流量控制</td>
+</tr>
+<tr>
+<td>Seata</td>
+<td>分布式事务</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td>缓存</td>
+</tr>
+</tbody></table>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ruoyi-cloud<span class="symbol">/</span></span><br><span class="line">├── ruoyi-api<span class="symbol">/</span>                    <span class="comment"># API模块</span></span><br><span class="line">│   ├── ruoyi-api-system<span class="symbol">/</span>        <span class="comment"># 系统API</span></span><br><span class="line">│   └── ruoyi-api-file<span class="symbol">/</span>          <span class="comment"># 文件API</span></span><br><span class="line">├── ruoyi-auth<span class="symbol">/</span>                   <span class="comment"># 认证中心</span></span><br><span class="line">├── ruoyi-common<span class="symbol">/</span>                 <span class="comment"># 通用模块</span></span><br><span class="line">│   ├── ruoyi-common-core<span class="symbol">/</span>       <span class="comment"># 核心模块</span></span><br><span class="line">│   ├── ruoyi-common-redis<span class="symbol">/</span>      <span class="comment"># Redis模块</span></span><br><span class="line">│   ├── ruoyi-common-security<span class="symbol">/</span>   <span class="comment"># 安全模块</span></span><br><span class="line">│   └── ruoyi-common-swagger<span class="symbol">/</span>    <span class="comment"># Swagger模块</span></span><br><span class="line">├── ruoyi-gateway<span class="symbol">/</span>                <span class="comment"># 网关服务</span></span><br><span class="line">├── ruoyi-modules<span class="symbol">/</span>                <span class="comment"># 业务模块</span></span><br><span class="line">│   ├── ruoyi-system<span class="symbol">/</span>            <span class="comment"># 系统模块</span></span><br><span class="line">│   ├── ruoyi-gen<span class="symbol">/</span>               <span class="comment"># 代码生成</span></span><br><span class="line">│   ├── ruoyi-job<span class="symbol">/</span>               <span class="comment"># 定时任务</span></span><br><span class="line">│   └── ruoyi-file<span class="symbol">/</span>              <span class="comment"># 文件服务</span></span><br><span class="line">├── ruoyi-visual<span class="symbol">/</span>                 <span class="comment"># 可视化模块</span></span><br><span class="line">│   └── ruoyi-monitor<span class="symbol">/</span>           <span class="comment"># 监控中心</span></span><br><span class="line">└── ruoyi-ui<span class="symbol">/</span>                     <span class="comment"># 前端项目</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义模块结构"><a href="#自定义模块结构" class="headerlink" title="自定义模块结构"></a>自定义模块结构</h2><p>按照你提供的结构，创建自定义业务模块：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$&#123;artifactId&#125;/</span><br><span class="line">├─ pom.<span class="keyword">xml</span>                           <span class="title"># 根pom</span>（带profiles）</span><br><span class="line">├─ $&#123;artifactId&#125;-api/                <span class="comment"># API聚合模块</span></span><br><span class="line">│   ├─ $&#123;artifactId&#125;-local-api/      <span class="comment"># 单机启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   ├─ $&#123;artifactId&#125;-cloud-api/      <span class="comment"># 微服务启动模块</span></span><br><span class="line">│   │   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   │   └─ src</span>/main/java/...</span><br><span class="line">│   └─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">├─ $</span>&#123;artifactId&#125;-biz/                <span class="comment"># 业务逻辑模块</span></span><br><span class="line">│   ├─ pom.<span class="keyword">xml</span></span><br><span class="line"><span class="title">│   └─ src</span>/main/java/...</span><br><span class="line">└─ $&#123;artifactId&#125;-<span class="literal">start</span>/              <span class="comment"># 启动模块</span></span><br><span class="line">    ├─ pom.<span class="keyword">xml</span></span><br><span class="line">    <span class="title">└─ src</span>/main/java/...</span><br></pre></td></tr></table></figure>
+
+<h2 id="Nacos配置"><a href="#Nacos配置" class="headerlink" title="Nacos配置"></a>Nacos配置</h2><h3 id="1-安装Nacos"><a href="#1-安装Nacos" class="headerlink" title="1. 安装Nacos"></a>1. 安装Nacos</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载Nacos</span></span><br><span class="line">wget https://github.com/alibaba/nacos/releases/download/2.2.0/nacos-server-2.2.0.tar.gz</span><br><span class="line">tar -xvf nacos-server-2.2.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nacos/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单机模式启动</span></span><br><span class="line">./startup.sh -m standalone</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">startup.cmd -m standalone</span><br></pre></td></tr></table></figure>
+
+<p>访问 <a href="http://localhost:8848/nacos%EF%BC%8C%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81%EF%BC%9Anacos/nacos">http://localhost:8848/nacos，默认账号密码：nacos/nacos</a></p>
+<h3 id="2-服务注册配置"><a href="#2-服务注册配置" class="headerlink" title="2. 服务注册配置"></a>2. 服务注册配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># application.yml</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruoyi-system</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line">        <span class="attr">namespace:</span> <span class="string">dev</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置中心使用"><a href="#3-配置中心使用" class="headerlink" title="3. 配置中心使用"></a>3. 配置中心使用</h3><p>在Nacos控制台创建配置：</p>
+<ul>
+<li>Data ID: <code>ruoyi-system-dev.yml</code></li>
+<li>Group: <code>DEFAULT_GROUP</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nacos配置内容</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9201</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud?useUnicode=true</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="单机调试模式"><a href="#单机调试模式" class="headerlink" title="单机调试模式"></a>单机调试模式</h2><h3 id="Profile配置"><a href="#Profile配置" class="headerlink" title="Profile配置"></a>Profile配置</h3><p>根pom.xml配置profiles：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 单机模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>local<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 微服务模式 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">profile.active</span>&gt;</span>cloud<span class="tag">&lt;/<span class="name">profile.active</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动配置"><a href="#单机启动配置" class="headerlink" title="单机启动配置"></a>单机启动配置</h3><p><code>application-local.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用服务注册</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">enabled:</span> <span class="literal">false</span>  <span class="comment"># 禁用配置中心</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ry-cloud</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="单机启动命令"><a href="#单机启动命令" class="headerlink" title="单机启动命令"></a>单机启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用local profile启动</span></span><br><span class="line">mvn spring-boot:run -Plocal</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者IDEA中设置Active Profiles为local</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="微服务模式部署"><a href="#微服务模式部署" class="headerlink" title="微服务模式部署"></a>微服务模式部署</h2><h3 id="1-启动顺序"><a href="#1-启动顺序" class="headerlink" title="1. 启动顺序"></a>1. 启动顺序</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> Nacos (服务注册与配置中心)</span><br><span class="line"><span class="bullet">2.</span> MySQL + Redis</span><br><span class="line"><span class="bullet">3.</span> ruoyi-gateway (网关)</span><br><span class="line"><span class="bullet">4.</span> ruoyi-auth (认证中心)</span><br><span class="line"><span class="bullet">5.</span> ruoyi-system (系统服务)</span><br><span class="line"><span class="bullet">6.</span> 其他业务服务</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Docker-Compose部署"><a href="#2-Docker-Compose部署" class="headerlink" title="2. Docker Compose部署"></a>2. Docker Compose部署</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">nacos:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nacos/nacos-server:v2.2.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MODE=standalone</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8848:8848&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:8.0</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">MYSQL_ROOT_PASSWORD=root</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">redis:6.0</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;6379:6379&quot;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">ruoyi-gateway:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-gateway</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-auth:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-auth</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">redis</span></span><br><span class="line">      </span><br><span class="line">  <span class="attr">ruoyi-system:</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">./ruoyi-modules/ruoyi-system</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">nacos</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-微服务启动命令"><a href="#3-微服务启动命令" class="headerlink" title="3. 微服务启动命令"></a>3. 微服务启动命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用cloud profile启动</span></span><br><span class="line">mvn spring-boot:run -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打包</span></span><br><span class="line">mvn clean package -Pcloud</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行jar</span></span><br><span class="line">java -jar ruoyi-gateway.jar --spring.profiles.active=cloud</span><br></pre></td></tr></table></figure>
+
+<h2 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h2><h3 id="Feign客户端定义"><a href="#Feign客户端定义" class="headerlink" title="Feign客户端定义"></a>Feign客户端定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ruoyi-api-system模块</span></span><br><span class="line"><span class="meta">@FeignClient(contextId = &quot;remoteUserService&quot;, </span></span><br><span class="line"><span class="meta">             value = &quot;ruoyi-system&quot;,</span></span><br><span class="line"><span class="meta">             fallbackFactory = RemoteUserFallbackFactory.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">RemoteUserService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@GetMapping(&quot;/user/info/&#123;username&#125;&quot;)</span></span><br><span class="line">    R&lt;LoginUser&gt; <span class="title function_">getUserInfo</span><span class="params">(<span class="meta">@PathVariable(&quot;username&quot;)</span> String username)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="服务调用-1"><a href="#服务调用-1" class="headerlink" title="服务调用"></a>服务调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SysLoginService</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RemoteUserService remoteUserService;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> LoginUser <span class="title function_">login</span><span class="params">(String username)</span> &#123;</span><br><span class="line">        R&lt;LoginUser&gt; result = remoteUserService.getUserInfo(username);</span><br><span class="line">        <span class="keyword">return</span> result.getData();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="1-Nacos连接失败"><a href="#1-Nacos连接失败" class="headerlink" title="1. Nacos连接失败"></a>1. Nacos连接失败</h3><p>检查Nacos是否启动，namespace是否正确配置</p>
+<h3 id="2-服务注册不上"><a href="#2-服务注册不上" class="headerlink" title="2. 服务注册不上"></a>2. 服务注册不上</h3><p>检查spring.application.name是否配置，网络是否通畅</p>
+<h3 id="3-配置不生效"><a href="#3-配置不生效" class="headerlink" title="3. 配置不生效"></a>3. 配置不生效</h3><p>确认Data ID格式：<code>$&#123;spring.application.name&#125;-$&#123;profile&#125;.$&#123;file-extension&#125;</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>RuoYi-Cloud通过Nacos实现了服务注册与配置管理，支持单机和微服务两种部署模式。开发时使用单机模式方便调试，生产环境使用微服务模式实现高可用。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://doc.ruoyi.vip/ruoyi-cloud/">RuoYi-Cloud官方文档</a></li>
+<li><a href="https://nacos.io/zh-cn/docs/quick-start.html">Nacos官方文档</a></li>
+<li><a href="https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/zh-cn/">Spring Cloud Alibaba</a></li>
+</ul>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/RuoYi-SpringCloud-Nacos-%E5%BE%AE%E6%9C%8D%E5%8A%A1-Java/" rel="tag">RuoYi SpringCloud Nacos 微服务 Java</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2025/01/15/AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/"
+                    data-tooltip="AI辅助编程工具对比：Cursor、Claude Code、Codex与Antigravity"
+                    aria-label="上一篇: AI辅助编程工具对比：Cursor、Claude Code、Codex与Antigravity"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/06/20/OKR%E7%BB%A9%E6%95%88%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%9E%E8%B7%B5/"
+                    data-tooltip="OKR绩效管理介绍与实践"
+                    aria-label="下一篇: OKR绩效管理介绍与实践"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2026 Lional. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2025/01/15/AI%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94/"
+                    data-tooltip="AI辅助编程工具对比：Cursor、Claude Code、Codex与Antigravity"
+                    aria-label="上一篇: AI辅助编程工具对比：Cursor、Claude Code、Codex与Antigravity"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/06/20/OKR%E7%BB%A9%E6%95%88%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%9E%E8%B7%B5/"
+                    data-tooltip="OKR绩效管理介绍与实践"
+                    aria-label="下一篇: OKR绩效管理介绍与实践"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                    title="分享到 Google+"
+                    aria-label="分享到 Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                        aria-label="分享到 Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                        aria-label="分享到 Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=https://ibunnyteam.github.io/2023/09/10/RuoYi-Cloud%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/"
+                        aria-label="分享到 Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>分享到 Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">Lional</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/script-1obdt5wzfl2h4z74qcngcfkihsn8nv7bavuzuqccs3xw55i5zz2cfvbfgzte.min.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>
